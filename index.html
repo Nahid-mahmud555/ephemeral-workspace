@@ -1,230 +1,162 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#FDFBF7">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#fdfbf7">
 <title>Session Burner Pro — A clean start begins here</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#FDFBF7;--paper:#fff;--ink:#1A1918;--muted:#77736d;--gold:#C5A059;--gold-soft:#f6efdf;--line:#eee9e0;--red:#b65e4b;--green:#47775c;--shadow:0 18px 55px rgba(65,47,24,.055);--radius:22px}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:"Plus Jakarta Sans",system-ui,sans-serif;min-height:100vh}button{font:inherit;cursor:pointer}button:focus-visible{outline:3px solid #d7b56e;outline-offset:3px}.shell{max-width:1120px;margin:auto;padding:28px 24px 44px}.topbar{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:7px 0 26px;border-bottom:1px solid var(--line)}.brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:-.6px}.brand-mark{width:38px;height:38px;border-radius:13px;background:var(--ink);display:grid;place-items:center;color:#f5e5c3}.brand-mark svg{width:21px}.brand small{display:block;font-size:10px;letter-spacing:1.7px;text-transform:uppercase;color:var(--muted);font-weight:600;margin-top:2px}.top-right{display:flex;align-items:center;gap:10px;color:var(--muted);font-size:12px}.pill{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line);background:#fff;padding:8px 12px;border-radius:99px}.dot{width:7px;height:7px;border-radius:50%;background:#bdb8af}.dot.live{background:#4b9368;box-shadow:0 0 0 4px #e7f2e9}.hero{padding:58px 0 36px;max-width:770px}.eyebrow{font-size:11px;font-weight:800;letter-spacing:2.4px;text-transform:uppercase;color:#9a7b3d;display:flex;align-items:center;gap:9px}.eyebrow:before{content:"";width:22px;height:1px;background:var(--gold)}h1{font-size:clamp(38px,6vw,66px);line-height:1.06;letter-spacing:-3.4px;margin:18px 0 18px;font-weight:700}h1 em{font-style:normal;color:var(--gold)}.hero p{color:var(--muted);font-size:15px;line-height:1.8;max-width:590px;margin:0}.layout{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(300px,.85fr);gap:20px;align-items:start}.card{background:var(--paper);border:1px solid rgba(222,214,201,.72);border-radius:var(--radius);box-shadow:var(--shadow);padding:25px}.card-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:22px}.card-head h2{font-size:15px;letter-spacing:-.3px;margin:0}.step{font:11px "IBM Plex Mono",monospace;color:#9c968b;background:#f8f5ef;border-radius:7px;padding:6px 8px}.status-panel{border:1px solid var(--line);background:#fdfbf7;border-radius:16px;padding:19px;display:flex;align-items:center;gap:14px;margin-bottom:18px}.status-icon{width:43px;height:43px;display:grid;place-items:center;border-radius:13px;background:var(--gold-soft);color:#9b7834;flex-shrink:0}.status-icon svg{width:21px}.status-copy{min-width:0;flex:1}.status-copy strong{display:block;font-size:13px;margin-bottom:4px}.status-copy span{display:block;color:var(--muted);font-size:11px;line-height:1.5;overflow-wrap:anywhere}.status-label{font-size:10px;text-transform:uppercase;letter-spacing:1px;font-weight:800;color:var(--muted)}.actions{display:grid;grid-template-columns:1fr;gap:10px}.btn{border:0;border-radius:12px;padding:14px 17px;font-size:12px;font-weight:800;letter-spacing:.1px;display:flex;justify-content:center;align-items:center;gap:9px;transition:transform .15s,background .15s}.btn:hover:not(:disabled){transform:translateY(-1px)}.btn:disabled{opacity:.42;cursor:not-allowed}.btn svg{width:16px;height:16px}.btn-primary{background:var(--ink);color:white}.btn-primary:hover:not(:disabled){background:#393630}.btn-danger{background:#b65e4b;color:white}.btn-danger:hover:not(:disabled){background:#9d4c3c}.btn-quiet{background:#f6f3ed;color:#5d574f;border:1px solid var(--line)}.fineprint{display:flex;gap:8px;color:#89837a;font-size:10px;line-height:1.65;margin:15px 1px 0}.fineprint svg{width:14px;flex-shrink:0;margin-top:1px}.metric-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}.metric{border:1px solid var(--line);border-radius:13px;padding:15px}.metric span{display:block;font-size:10px;color:var(--muted);margin-bottom:7px}.metric strong{font-size:21px;letter-spacing:-.8px}.metric small{font-size:10px;color:var(--muted);font-weight:500}.log-card{margin-top:20px}.log-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:16px}.log-head h2{font-size:14px;margin:0}.log-actions{display:flex;align-items:center;gap:8px}.text-btn{border:0;background:transparent;color:#8b8376;font-size:10px;font-weight:700;padding:5px}.logbox{background:#201f1d;border-radius:14px;padding:16px;min-height:190px;max-height:280px;overflow:auto;color:#d6d0c4;font:11px/1.9 "IBM Plex Mono",monospace}.logline{display:flex;gap:10px;overflow-wrap:anywhere;white-space:pre-wrap}.logtime{color:#8c877e;flex-shrink:0}.logline.good .logmsg{color:#b9d9bf}.logline.warn .logmsg{color:#e4c58b}.logline.bad .logmsg{color:#e6a497}.logline.info .logmsg{color:#d6d0c4}.log-empty{color:#817b71}.directory-list{margin-top:18px;border:1px solid var(--line);border-radius:13px;overflow:hidden}.list-top{padding:12px 14px;background:#fcfaf6;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:8px;font-size:10px;color:var(--muted)}.file-list{padding:0;margin:0;list-style:none}.file-list li{padding:12px 14px;border-bottom:1px solid #f3efe8;display:flex;gap:10px;align-items:center;font-size:11px}.file-list li:last-child{border-bottom:0}.file-icon{width:29px;height:29px;border-radius:9px;background:#f5f1e9;color:#8b7753;display:grid;place-items:center;flex-shrink:0}.file-icon svg{width:15px}.file-meta{min-width:0;flex:1}.file-meta strong{display:block;overflow-wrap:anywhere;font-size:11px;font-weight:700}.file-meta span{display:block;color:var(--muted);font-size:10px;margin-top:3px}.file-tag{font-size:9px;font-weight:800;color:#a45c4b;background:#fbefeb;padding:5px 7px;border-radius:6px;white-space:nowrap}.empty-files{padding:24px 15px;color:#999186;text-align:center;font-size:11px;line-height:1.7}.side-card{margin-bottom:20px}.side-card:last-child{margin-bottom:0}.side-card h2{font-size:14px;margin:0 0 16px}.step-list{display:grid;gap:15px}.step-item{display:flex;gap:12px}.step-num{width:27px;height:27px;border-radius:9px;background:#f6f1e6;color:#9a7b3d;font:11px "IBM Plex Mono",monospace;display:grid;place-items:center;flex-shrink:0}.step-item strong{font-size:11px;display:block;margin:1px 0 5px}.step-item p{font-size:10px;color:var(--muted);line-height:1.7;margin:0}.notice{padding:14px;border-radius:13px;background:#fbf3e9;border:1px solid #f0e1ca;color:#776244;font-size:10px;line-height:1.75}.notice strong{display:block;font-size:11px;margin-bottom:4px}.privacy-row{display:flex;gap:10px;align-items:flex-start;padding:12px 0;border-bottom:1px solid #f2eee7}.privacy-row:last-child{border-bottom:0;padding-bottom:0}.privacy-row svg{width:16px;height:16px;color:#9c844e;flex-shrink:0}.privacy-row strong{font-size:10px;display:block;margin-bottom:4px}.privacy-row span{display:block;color:var(--muted);font-size:10px;line-height:1.65}.footer{display:flex;justify-content:space-between;gap:16px;padding-top:25px;color:#9b958b;font-size:10px}.footer span:last-child{text-align:right}.modal-backdrop{position:fixed;inset:0;background:rgba(28,25,21,.45);backdrop-filter:blur(5px);display:none;align-items:center;justify-content:center;padding:20px;z-index:5}.modal-backdrop.show{display:flex}.modal{width:min(440px,100%);background:#fff;border-radius:22px;padding:27px;box-shadow:0 25px 100px #0002;animation:rise .18s ease-out}.modal-symbol{width:45px;height:45px;background:#fbefeb;color:var(--red);border-radius:14px;display:grid;place-items:center}.modal-symbol svg{width:22px}.modal h2{font-size:21px;letter-spacing:-.8px;margin:18px 0 9px}.modal p{font-size:12px;color:var(--muted);line-height:1.8;margin:0}.modal-count{margin:17px 0;padding:14px;border:1px solid var(--line);border-radius:12px;background:#fcfaf7;display:flex;justify-content:space-between;gap:10px;font-size:11px}.modal-count strong{color:var(--red)}.modal-check{display:flex;align-items:flex-start;gap:9px;margin:15px 0 20px;font-size:10px;color:#716b62;line-height:1.6}.modal-check input{margin-top:2px;accent-color:var(--red)}.modal-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px}.toast{position:fixed;bottom:22px;left:50%;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:#22211f;color:white;padding:12px 17px;border-radius:12px;font-size:11px;box-shadow:var(--shadow);transition:.2s;z-index:10;max-width:90vw}.toast.show{opacity:1;transform:translate(-50%,0)}@keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}@media(max-width:780px){.shell{padding:18px 15px 30px}.hero{padding:43px 0 28px}h1{letter-spacing:-2px}.layout{grid-template-columns:1fr}.top-right .secure-copy{display:none}.footer{flex-direction:column}.footer span:last-child{text-align:left}}@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+:root{--paper:#fdfbf7;--card:#fff;--ink:#1a1918;--muted:#77736c;--line:#e9e4db;--gold:#c5a059;--gold-dark:#9c7938;--soft:#f4efe5;--red:#b65f4d;--red-bg:#fff0ec;--green:#2e765a;--green-bg:#eaf5ee;--shadow:0 14px 40px rgba(40,32,18,.055)}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:'Plus Jakarta Sans',sans-serif;font-size:14px}button,input,textarea{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid #c5a05988;outline-offset:3px}.shell{max-width:1200px;margin:auto;padding:0 28px}.topbar{height:84px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}.brand{display:flex;align-items:center;gap:12px;font-weight:800;font-size:16px;letter-spacing:-.5px}.brandmark{width:36px;height:36px;border-radius:12px;background:var(--ink);display:grid;place-items:center;color:var(--gold);font-size:19px}.brand small{display:block;font-size:10px;color:var(--muted);font-weight:600;letter-spacing:1.5px;margin-top:3px}.navright{display:flex;align-items:center;gap:20px;color:var(--muted);font-size:12px}.secure{display:flex;align-items:center;gap:7px;color:var(--green);background:var(--green-bg);padding:9px 12px;border-radius:30px;font-weight:700}.dot{width:7px;height:7px;border-radius:50%;background:currentColor}.hero{padding:68px 0 45px;display:grid;grid-template-columns:1.08fr .92fr;gap:65px;align-items:center}.eyebrow{color:var(--gold-dark);font-size:11px;letter-spacing:2px;font-weight:800;text-transform:uppercase;display:flex;align-items:center;gap:9px}.eyebrow:before{content:'';width:24px;height:1px;background:var(--gold)}h1{font-size:clamp(40px,5.5vw,68px);line-height:1.06;letter-spacing:-4px;margin:20px 0 20px;font-weight:800}h1 span{color:var(--gold-dark)}.lead{font-size:15px;line-height:1.9;color:var(--muted);max-width:490px}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.btn{border:1px solid transparent;border-radius:12px;padding:14px 19px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;gap:10px;transition:.2s}.btn-primary{background:var(--ink);color:#fff}.btn-primary:hover{background:#34312c;transform:translateY(-1px)}.btn-secondary{background:#fff;border-color:var(--line);color:var(--ink)}.btn-secondary:hover{border-color:var(--gold)}.btn-danger{background:var(--red);color:#fff}.btn-danger:hover{background:#9e4d3e}.btn:disabled{opacity:.45;cursor:not-allowed;transform:none}.fineprint{margin-top:17px;font-size:11px;color:var(--muted);line-height:1.7}.preview{position:relative;background:#211f1b;border-radius:24px;padding:22px;color:#f9f5ed;min-height:365px;box-shadow:0 24px 60px #28211520;overflow:hidden}.preview:after{content:'';position:absolute;width:260px;height:260px;border-radius:50%;border:1px solid #ffffff0d;right:-80px;top:-90px;box-shadow:0 0 0 30px #ffffff04,0 0 0 60px #ffffff03}.preview-head{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #ffffff19;padding-bottom:17px}.mono{font-family:'DM Mono',monospace}.live{font-size:10px;color:#b8e3c7;display:flex;align-items:center;gap:7px}.live .dot{background:#7ac998;box-shadow:0 0 0 4px #7ac99820}.preview-label{font-size:10px;color:#a6a096;letter-spacing:1.5px}.preview-time{font-size:43px;letter-spacing:-2px;margin:28px 0 6px}.preview-sub{color:#a6a096;font-size:11px}.mini-files{margin-top:26px;display:grid;gap:9px}.mini-file{display:flex;align-items:center;gap:10px;background:#ffffff09;border:1px solid #ffffff10;border-radius:10px;padding:11px}.file-icon{width:30px;height:30px;background:#ffffff0e;border-radius:8px;display:grid;place-items:center;color:var(--gold)}.file-name{font-size:11px;font-weight:600}.file-meta{font-size:10px;color:#a6a096;margin-top:3px}.file-size{margin-left:auto;color:#b7b0a5;font-size:10px}.preview-foot{margin-top:18px;color:#a6a096;font-size:10px;display:flex;justify-content:space-between}.section-head{display:flex;justify-content:space-between;align-items:end;margin:30px 0 20px}.section-head h2{margin:0;font-size:24px;letter-spacing:-1px}.section-head p{margin:8px 0 0;color:var(--muted);font-size:12px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:50px}.feature{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;min-height:170px}.feature-icon{width:39px;height:39px;border-radius:12px;background:var(--soft);display:grid;place-items:center;color:var(--gold-dark);font-size:18px}.feature h3{font-size:14px;margin:17px 0 8px}.feature p{font-size:12px;line-height:1.8;color:var(--muted);margin:0}.notice{border:1px solid #eadcc1;background:#fffaf0;border-radius:14px;padding:16px 18px;color:#695b43;font-size:11px;line-height:1.8;margin-bottom:45px}.notice strong{color:#3d3426}.workspace{display:none;padding:34px 0 60px}.workspace.active{display:block}.landing.hidden{display:none}.backline{display:flex;justify-content:space-between;align-items:center;margin-bottom:23px}.backlink{border:0;background:none;padding:8px 0;color:var(--muted);font-weight:700}.status-pill{display:flex;align-items:center;gap:8px;border-radius:30px;background:var(--green-bg);color:var(--green);padding:9px 13px;font-size:11px;font-weight:800}.dashboard{display:grid;grid-template-columns:1fr 320px;gap:18px}.panel{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px;min-width:0}.panel-title{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:18px}.panel-title h2,.panel-title h3{font-size:16px;letter-spacing:-.5px;margin:0}.muted{color:var(--muted)}.small{font-size:11px}.workspace-path{background:#f8f5ef;border:1px solid var(--line);border-radius:10px;padding:12px;display:flex;align-items:center;gap:10px;margin-bottom:16px;overflow:hidden}.workspace-path span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:11px}.toolbar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}.toolbar .btn{padding:10px 12px;font-size:11px;border-radius:9px}.file-list{display:grid;gap:8px}.empty{padding:36px 12px;text-align:center;color:var(--muted);border:1px dashed var(--line);border-radius:12px}.empty b{display:block;color:var(--ink);margin:10px 0 6px}.file-row{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:11px;padding:12px;min-width:0}.file-row input{accent-color:var(--gold-dark)}.file-row .file-icon{flex-shrink:0}.file-details{min-width:0;flex:1}.file-details strong{display:block;font-size:11px;overflow-wrap:anywhere}.file-details small{display:block;color:var(--muted);font-size:10px;margin-top:4px}.tag{font-size:9px;background:#f3efe7;color:#7e6b48;padding:5px 7px;border-radius:5px;white-space:nowrap}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:18px}.stat{background:#faf8f3;border-radius:11px;padding:13px}.stat span{font-size:10px;color:var(--muted);display:block}.stat strong{display:block;font-size:22px;letter-spacing:-1px;margin-top:7px}.timer-card{background:#211f1b;border-radius:14px;padding:18px;color:#fff;margin-bottom:15px}.timer-card .label{font-size:10px;color:#aaa398;letter-spacing:1px}.timer{font-size:33px;letter-spacing:-1px;margin:10px 0}.timer-card p{color:#b6afa4;font-size:10px;margin:0}.activity{background:#1e1d1a;border-radius:12px;padding:13px;color:#d8d1c5;max-height:250px;overflow:auto;font:10px/1.8 'DM Mono',monospace}.logline{border-bottom:1px solid #ffffff0d;padding:4px 0;overflow-wrap:anywhere}.logtime{color:#c5a059}.logkind{color:#95c9a4}.side-actions{display:grid;gap:9px;margin-top:15px}.side-actions .btn{width:100%;font-size:12px}.footer{border-top:1px solid var(--line);padding:24px 0;color:var(--muted);font-size:10px;display:flex;justify-content:space-between;gap:15px}.modal-backdrop{position:fixed;inset:0;background:#171510a8;z-index:20;display:none;align-items:center;justify-content:center;padding:18px}.modal-backdrop.open{display:flex}.modal{background:var(--paper);border-radius:20px;width:min(680px,100%);max-height:90vh;overflow:auto;padding:25px;box-shadow:0 24px 80px #0004}.modal-head{display:flex;justify-content:space-between;gap:15px;align-items:start}.modal h2{font-size:24px;letter-spacing:-1px;margin:0 0 8px}.modal p{font-size:12px;color:var(--muted);line-height:1.8}.xbtn{border:0;background:#eee9df;border-radius:9px;width:34px;height:34px;font-size:18px}.review-list{border:1px solid var(--line);border-radius:12px;overflow:hidden;margin:18px 0}.review-item{display:flex;align-items:center;gap:10px;padding:12px;border-bottom:1px solid var(--line)}.review-item:last-child{border:0}.review-item input{accent-color:var(--red)}.review-item div{min-width:0;flex:1}.review-item strong{font-size:11px;overflow-wrap:anywhere}.review-item small{display:block;color:var(--muted);font-size:10px;margin-top:4px}.modal-summary{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.summary-chip{background:#f2eee6;border-radius:10px;padding:12px}.summary-chip span{display:block;color:var(--muted);font-size:10px}.summary-chip strong{display:block;font-size:17px;margin-top:6px}.warning{padding:13px;background:var(--red-bg);color:#874838;border-radius:10px;font-size:11px;line-height:1.8;margin:14px 0}.modal-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:18px;flex-wrap:wrap}.report-icon{width:50px;height:50px;border-radius:15px;background:var(--green-bg);display:grid;place-items:center;color:var(--green);font-size:24px;margin-bottom:15px}.report-status{display:inline-block;border-radius:30px;padding:7px 10px;font-size:10px;font-weight:800;background:var(--green-bg);color:var(--green);margin:8px 0 14px}.report-status.partial{background:#fff3df;color:#8d6722}.report-status.failed{background:var(--red-bg);color:var(--red)}.report-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:18px 0}.report-item{border:1px solid var(--line);border-radius:11px;padding:13px}.report-item span{display:block;font-size:10px;color:var(--muted)}.report-item strong{display:block;font-size:17px;margin-top:6px;overflow-wrap:anywhere}.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:50;background:#211f1b;color:white;border-radius:12px;padding:13px 17px;font-size:12px;box-shadow:var(--shadow);display:none;max-width:90%;text-align:center}.toast.show{display:block}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:850px){.hero{grid-template-columns:1fr;gap:35px;padding-top:48px}.preview{min-height:330px}.dashboard{grid-template-columns:1fr}.grid3{grid-template-columns:1fr 1fr}.hero-copy{max-width:700px}}@media(max-width:560px){.shell{padding:0 17px}.topbar{height:70px}.navright>span:first-child{display:none}.hero{padding:38px 0 30px}h1{letter-spacing:-2.5px;font-size:43px}.preview{padding:17px}.grid3{grid-template-columns:1fr}.feature{min-height:0}.section-head{align-items:start;flex-direction:column;gap:10px}.panel{padding:15px}.stats{gap:6px}.stat{padding:10px}.stat strong{font-size:19px}.tag{display:none}.modal{padding:19px}.modal-summary{grid-template-columns:1fr 1fr}.footer{flex-direction:column}.toolbar .btn{flex:1}.report-grid{grid-template-columns:1fr 1fr}}
 </style>
 </head>
 <body>
 <div class="shell">
 <header class="topbar">
-  <div class="brand"><div class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3 19 6v5c0 4.7-3 8-7 10-4-2-7-5.3-7-10V6l7-3Z"/><path d="m9 12 2 2 4-4"/></svg></div><div>session burner<small>ephemeral workspace</small></div></div>
-  <div class="top-right"><span class="secure-copy">Privacy-first by design</span><span class="pill"><span class="dot" id="topDot"></span><span id="topStatus">Not active</span></span></div>
+  <div class="brand"><div class="brandmark" aria-hidden="true">◈</div><div>Session Burner Pro<small>PRIVATE WORKSPACE</small></div></div>
+  <div class="navright"><span>Local-first by design</span><div class="secure"><span class="dot"></span> Your control, always</div></div>
 </header>
-<section class="hero">
-  <div class="eyebrow">Your workspace, on your terms</div>
-  <h1>A clean start<br>begins <em>here.</em></h1>
-  <p>Work in a temporary window. Review what changed. Remove session files when you're done. No account, no uploads — your selected folder stays on your device.</p>
-</section>
-<main class="layout">
-  <div>
-    <section class="card">
-      <div class="card-head"><h2>Secure session</h2><span class="step">01 / SESSION</span></div>
-      <div class="status-panel">
-        <div class="status-icon" id="statusIcon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3 19 6v5c0 4.7-3 8-7 10-4-2-7-5.3-7-10V6l7-3Z"/><path d="M12 8v4m0 4h.01"/></svg></div>
-        <div class="status-copy"><strong id="statusTitle">Ready when you are</strong><span id="statusDesc">Choose a folder to begin tracking changes.</span></div>
-        <span class="status-label" id="statusLabel">Idle</span>
-      </div>
-      <div class="actions">
-        <button class="btn btn-primary" id="startBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3 19 6v5c0 4.7-3 8-7 10-4-2-7-5.3-7-10V6l7-3Z"/><path d="m9 12 2 2 4-4"/></svg>Start Secure Session</button>
-        <button class="btn btn-danger" id="burnBtn" disabled><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3c1 4-3 5-1 8 1-2 3-3 4-5 3 3 5 6 3 10a6.5 6.5 0 0 1-13-1c0-3 2-6 5-8-.3 2-.2 3 1 4 1-3 1-5 1-8Z"/></svg>Finish &amp; Burn Files</button>
-        <button class="btn btn-quiet" id="scanBtn" disabled><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 7v5h-5M4 17v-5h5"/><path d="M5.6 9a7 7 0 0 1 11.6-2L20 12M4 12l2.8 5a7 7 0 0 0 11.6-2"/></svg>Scan folder now</button>
-      </div>
-      <div class="fineprint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3 19 6v5c0 4.7-3 8-7 10-4-2-7-5.3-7-10V6l7-3Z"/><path d="m9 12 2 2 4-4"/></svg><span>Folder access is granted by you, through your browser. Files are only deleted after you review the list and confirm.</span></div>
-      <div class="metric-row">
-        <div class="metric"><span>Session duration</span><strong id="duration">00:00</strong><small> elapsed</small></div>
-        <div class="metric"><span>Changed files found</span><strong id="fileCount">0</strong><small> candidates</small></div>
-      </div>
-      <div class="directory-list">
-        <div class="list-top"><span>SESSION FILE CANDIDATES</span><span id="scanStatus">Not scanned</span></div>
-        <ul class="file-list" id="fileList"><li class="empty-files">Your changed files will appear here after you start a session and scan the selected folder.</li></ul>
-      </div>
-    </section>
-    <section class="card log-card">
-      <div class="log-head"><h2>Activity log</h2><div class="log-actions"><span class="step" id="logCount">0 EVENTS</span><button class="text-btn" id="clearLogBtn">Clear view</button></div></div>
-      <div class="logbox" id="logbox" role="log" aria-live="polite"><div class="log-empty">Waiting for session activity…</div></div>
-    </section>
-  </div>
-  <aside>
-    <section class="card side-card">
-      <div class="card-head"><h2>How it works</h2><span class="step">02 / FLOW</span></div>
-      <div class="step-list">
-        <div class="step-item"><div class="step-num">01</div><div><strong>Choose your workspace</strong><p>Select a folder using the browser's native permission prompt. The timer starts after access is granted.</p></div></div>
-        <div class="step-item"><div class="step-num">02</div><div><strong>Work as usual</strong><p>Scan checks direct files in the selected folder for last-modified times during this session. Scan again to refresh the list.</p></div></div>
-        <div class="step-item"><div class="step-num">03</div><div><strong>Review, then burn</strong><p>Review candidates and confirm. The app attempts to delete only matching files, then reports each result in the activity log.</p></div></div>
-      </div>
-    </section>
-    <section class="card side-card">
-      <h2>Privacy by design</h2>
-      <div class="privacy-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg><div><strong>Permission-based access</strong><span>Your browser asks you to select and grant access to a folder.</span></div></div>
-      <div class="privacy-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4M8 11h6"/></svg><div><strong>Transparent review</strong><span>Candidate files are listed before deletion; this tool does not delete files silently.</span></div></div>
-      <div class="privacy-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3 19 6v5c0 4.7-3 8-7 10-4-2-7-5.3-7-10V6l7-3Z"/><path d="m9 12 2 2 4-4"/></svg><div><strong>Local-only workflow</strong><span>This page does not upload your files to a server.</span></div></div>
-    </section>
-    <div class="notice"><strong>Important: deletion is not secure erasure</strong>Removing a file entry does not guarantee data is unrecoverable. Backups, cloud sync, trash behavior, filesystem journaling, and SSD wear-leveling may retain copies. Use only on folders and files you own or are authorized to manage.</div>
-  </aside>
+<main id="landing" class="landing">
+  <section class="hero">
+    <div class="hero-copy">
+      <div class="eyebrow">Privacy starts with intention</div>
+      <h1>A clean start<br>begins <span>here.</span></h1>
+      <p class="lead">A temporary workspace for focused work. Track the files you use, review what can be removed, and finish every session with a cleanup report you can trust.</p>
+      <div class="actions"><button class="btn btn-primary" id="startBtn">Start Secure Session <span aria-hidden="true">↗</span></button><button class="btn btn-secondary" id="howBtn">How it works <span aria-hidden="true">↓</span></button></div>
+      <p class="fineprint">No files are touched until you choose a workspace and confirm a cleanup.<br>Folder access requires a supported browser such as Chrome or Edge on HTTPS/localhost.</p>
+    </div>
+    <div class="preview" aria-label="Illustration of a temporary workspace">
+      <div class="preview-head"><div><div class="preview-label">SESSION OVERVIEW</div><div style="font-size:13px;font-weight:700;margin-top:7px">Your temporary workspace</div></div><div class="live"><span class="dot"></span> READY</div></div>
+      <div class="preview-label" style="margin-top:25px">SESSION TIMER</div><div class="preview-time mono">00:00:00</div><div class="preview-sub">Timer begins when your folder is connected.</div>
+      <div class="mini-files">
+        <div class="mini-file"><div class="file-icon">▤</div><div><div class="file-name">session-notes.txt</div><div class="file-meta">Tracked workspace file</div></div><div class="file-size">4.2 KB</div></div>
+        <div class="mini-file"><div class="file-icon">⇩</div><div><div class="file-name">controlled-download</div><div class="file-meta">Application-managed</div></div><div class="file-size">Tracked</div></div>
+      </div><div class="preview-foot"><span>LOCAL WORKSPACE</span><span>REVIEW BEFORE CLEANUP ↗</span></div>
+    </div>
+  </section>
+  <section id="how">
+    <div class="section-head"><div><h2>Privacy you can understand.</h2><p>Simple steps. Transparent actions. No silent cleanup.</p></div><span class="muted small">01 — 03</span></div>
+    <div class="grid3">
+      <article class="feature"><div class="feature-icon">⌁</div><h3>Choose your workspace</h3><p>You grant access to one folder through your browser. Session Burner does not inspect other folders or unrelated websites.</p></article>
+      <article class="feature"><div class="feature-icon">◷</div><h3>Work with a clear record</h3><p>Track supported file operations performed here, including app-created files and controlled downloads, with timestamps.</p></article>
+      <article class="feature"><div class="feature-icon">✓</div><h3>Review, then burn</h3><p>See the exact files selected for removal. Nothing is deleted until you confirm, and the final report explains skipped items.</p></article>
+    </div>
+    <div class="notice"><strong>Important browser limitation:</strong> A website cannot clear operating-system history, other apps' data, unrelated websites' cookies, cloud backups, or files outside the granted folder. Deleting a file is not a guarantee of secure or unrecoverable erasure. Session Burner only reports operations it can actually perform.</div>
+  </section>
 </main>
-<footer class="footer"><span>SESSION BURNER PRO · A clean start begins here.</span><span>Browser-based utility · No files are uploaded</span></footer>
-</div>
-<div class="modal-backdrop" id="confirmModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-  <div class="modal">
-    <div class="modal-symbol"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3c1 4-3 5-1 8 1-2 3-3 4-5 3 3 5 6 3 10a6.5 6.5 0 0 1-13-1c0-3 2-6 5-8-.3 2-.2 3 1 4 1-3 1-5 1-8Z"/></svg></div>
-    <h2 id="modalTitle">Burn session files?</h2>
-    <p>This will attempt to permanently remove the listed files from the selected folder. This action may not be reversible. Please check the candidates before continuing.</p>
-    <div class="modal-count"><span>Files selected for deletion</span><strong id="modalCount">0 files</strong></div>
-    <label class="modal-check"><input type="checkbox" id="confirmCheck"><span>I have reviewed the file list and understand deletion cannot reliably be undone.</span></label>
-    <div class="modal-actions"><button class="btn btn-quiet" id="cancelBurn">Cancel</button><button class="btn btn-danger" id="confirmBurn" disabled>Burn selected files</button></div>
+<section id="workspace" class="workspace" aria-live="polite">
+  <div class="backline"><button class="backlink" id="homeBtn">← Back to overview</button><div id="statusPill" class="status-pill"><span class="dot"></span><span id="statusText">ACTIVE SESSION</span></div></div>
+  <div class="section-head" style="margin-top:0"><div><div class="eyebrow">Your workspace</div><h2 style="margin-top:12px">Make this session count.</h2><p>Only actions performed through this app are logged.</p></div><span class="muted small mono" id="sessionIdLabel">SESSION —</span></div>
+  <div class="dashboard">
+    <div class="panel">
+      <div class="panel-title"><h2>Workspace files</h2><span class="small muted" id="fileCount">0 tracked</span></div>
+      <div class="workspace-path"><span style="color:var(--gold-dark)">▣</span><span id="folderName">No folder selected</span></div>
+      <div class="toolbar"><button class="btn btn-secondary" id="createBtn">＋ Create note</button><button class="btn btn-secondary" id="importBtn">↑ Import file</button><button class="btn btn-secondary" id="downloadBtn">↓ Download file</button><button class="btn btn-secondary" id="refreshBtn">↻ Rescan</button></div>
+      <div class="stats"><div class="stat"><span>Tracked files</span><strong id="statFiles">0</strong></div><div class="stat"><span>Tracked size</span><strong id="statSize">0 B</strong></div><div class="stat"><span>Logged events</span><strong id="statEvents">0</strong></div></div>
+      <div class="file-list" id="fileList"><div class="empty"><div style="font-size:25px">▤</div><b>Your workspace is ready</b>Create a note or import a file to begin tracking.</div></div>
+    </div>
+    <aside>
+      <div class="panel">
+        <div class="panel-title"><h3>Session timer</h3><span class="small muted">LOCAL</span></div>
+        <div class="timer-card"><div class="label">TIME ELAPSED</div><div class="timer mono" id="timer">00:00:00</div><p id="startedAt">Session started —</p></div>
+        <div class="panel-title"><h3>Activity log</h3><span class="small muted">LATEST FIRST</span></div>
+        <div class="activity" id="activityLog" aria-label="Session activity log"><div class="logline">Waiting for first activity…</div></div>
+        <div class="side-actions"><button class="btn btn-danger" id="endBtn">End session & review ↗</button><button class="btn btn-secondary" id="exportLogBtn">Export activity log</button></div>
+      </div>
+    </aside>
   </div>
+</section>
+<footer class="footer"><span>© 2026 Session Burner Pro · A clean start begins here.</span><span>Local-first · Explicit consent · Honest reporting</span></footer>
 </div>
-<div class="toast" id="toast" role="status"></div>
+
+<div class="modal-backdrop" id="noteModal" role="dialog" aria-modal="true" aria-labelledby="noteTitle">
+ <div class="modal"><div class="modal-head"><div><h2 id="noteTitle">Create a session note</h2><p>Save a text file directly in your selected workspace.</p></div><button class="xbtn" data-close="noteModal" aria-label="Close">×</button></div>
+ <label for="noteName" class="small">File name</label><input id="noteName" value="session-notes.txt" style="width:100%;padding:12px;border:1px solid var(--line);border-radius:9px;background:#fff;margin:7px 0 13px">
+ <label for="noteText" class="small">Note content</label><textarea id="noteText" rows="6" placeholder="Write something for this session…" style="width:100%;padding:12px;border:1px solid var(--line);border-radius:9px;background:#fff;resize:vertical;margin-top:7px"></textarea>
+ <div class="modal-actions"><button class="btn btn-secondary" data-close="noteModal">Cancel</button><button class="btn btn-primary" id="saveNoteBtn">Save to workspace</button></div></div>
+</div>
+<div class="modal-backdrop" id="confirmModal" role="dialog" aria-modal="true" aria-labelledby="confirmTitle">
+ <div class="modal"><div class="modal-head"><div><div class="eyebrow" style="margin-bottom:12px">Final review</div><h2 id="confirmTitle">Finish & Burn Session?</h2><p>Your session is ending. Review the items below. Confirming attempts to permanently remove only the selected, tracked workspace files.</p></div><button class="xbtn" data-close="confirmModal" aria-label="Close">×</button></div>
+ <div class="modal-summary"><div class="summary-chip"><span>Selected files</span><strong id="reviewCount">0</strong></div><div class="summary-chip"><span>Selected size</span><strong id="reviewSize">0 B</strong></div><div class="summary-chip"><span>App temporary items</span><strong id="tempCount">0</strong></div></div>
+ <div class="review-list" id="reviewList"><div class="review-item"><div><strong>No tracked files selected</strong></div></div></div>
+ <div class="warning"><strong>What will happen:</strong> Selected tracked files in this workspace will be revalidated and deletion attempted. App-created Blob URLs and app-owned temporary state will be released/cleared. Files you do not select will remain. Browser/system history, other sites' data, cloud copies, and secure erasure are not available to this website.</div>
+ <p id="reviewOther" class="small">Unselected and ambiguous files will be left untouched. The cleanup report records success, skips, and errors.</p>
+ <div class="modal-actions"><button class="btn btn-secondary" id="cancelBurnBtn">Cancel — return to session</button><button class="btn btn-danger" id="confirmBurnBtn">Confirm & Burn</button></div>
+ </div>
+</div>
+<div class="modal-backdrop" id="reportModal" role="dialog" aria-modal="true" aria-labelledby="reportTitle">
+ <div class="modal"><div class="report-icon" id="reportIcon">✓</div><div class="eyebrow">Cleanup report</div><h2 id="reportTitle">Session Completed</h2><div class="report-status" id="reportStatus">COMPLETED</div><p id="reportIntro">Cleanup results are listed below.</p>
+ <div class="report-grid" id="reportGrid"></div><div class="activity" id="reportLog" style="max-height:150px"></div>
+ <div class="warning" style="background:#f3efe7;color:#695b43"><strong>Reminder:</strong> File deletion is not guaranteed secure erasure. Copies may remain in backups, sync services, snapshots, or recoverable storage.</div>
+ <div class="modal-actions"><button class="btn btn-secondary" id="saveReportBtn">Export report</button><button class="btn btn-primary" id="newSessionBtn">Return to clean start ↗</button></div></div>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<input id="importInput" type="file" hidden>
 <script>
 (() => {
-  const $ = id => document.getElementById(id);
-  const state = { handle:null, startTime:0, active:false, scanning:false, candidates:[], log:[], timer:null, blobUrls:new Set(), appStorageKeys:[] };
-  const icons = {
-    file:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M13 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V10Z"/><path d="M13 3v7h7"/></svg>'
-  };
-  function log(message, type='info') {
-    const item = { time:new Date(), message, type }; state.log.push(item);
-    if (state.log.length > 250) state.log.shift();
-    renderLog();
-  }
-  function renderLog() {
-    const box = $('logbox'); box.replaceChildren();
-    if (!state.log.length) { const e=document.createElement('div');e.className='log-empty';e.textContent='Waiting for session activity…';box.append(e); }
-    state.log.forEach(item => {
-      const line=document.createElement('div');line.className='logline '+item.type;
-      const t=document.createElement('span');t.className='logtime';t.textContent=item.time.toLocaleTimeString([], {hour12:false});
-      const m=document.createElement('span');m.className='logmsg';m.textContent=item.message;
-      line.append(t,m);box.append(line);
-    });
-    $('logCount').textContent=state.log.length+' EVENTS'; box.scrollTop=box.scrollHeight;
-  }
-  let toastTimer;
-  function toast(msg) { const el=$('toast');el.textContent=msg;el.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove('show'),2600); }
-  function setStatus(mode, title, desc, label) {
-    $('statusTitle').textContent=title; $('statusDesc').textContent=desc; $('statusLabel').textContent=label;
-    $('topStatus').textContent=mode==='active'?'Tracking active':mode==='done'?'Session ended':'Not active';
-    $('topDot').className='dot'+(mode==='active'?' live':'');
-    $('statusIcon').style.background=mode==='active'?'#eaf4ec':mode==='done'?'#f2f0eb':'#f6efdf';
-    $('statusIcon').style.color=mode==='active'?'#47775c':mode==='done'?'#77736d':'#9b7834';
-  }
-  function fmtDuration(ms) { const s=Math.max(0,Math.floor(ms/1000));return String(Math.floor(s/3600)).padStart(2,'0')+':'+String(Math.floor((s%3600)/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0'); }
-  function updateTimer() { if(state.active) $('duration').textContent=fmtDuration(Date.now()-state.startTime); }
-  function formatBytes(bytes) { if(bytes<1024)return bytes+' B';if(bytes<1048576)return (bytes/1024).toFixed(1)+' KB';return (bytes/1048576).toFixed(1)+' MB'; }
-  function renderFiles() {
-    $('fileCount').textContent=state.candidates.length;
-    $('scanStatus').textContent=state.candidates.length ? 'Last scan: '+new Date().toLocaleTimeString([], {hour12:false}) : '0 candidates';
-    const ul=$('fileList');ul.replaceChildren();
-    if(!state.candidates.length){const li=document.createElement('li');li.className='empty-files';li.textContent=state.active?'No matching files found yet. Scan again after creating or downloading files.':'No file candidates to display.';ul.append(li);return;}
-    state.candidates.sort((a,b)=>b.lastModified-a.lastModified).forEach(f=>{
-      const li=document.createElement('li');const icon=document.createElement('div');icon.className='file-icon';icon.innerHTML=icons.file;
-      const meta=document.createElement('div');meta.className='file-meta';const name=document.createElement('strong');name.textContent=f.name;const detail=document.createElement('span');detail.textContent=new Date(f.lastModified).toLocaleString()+' · '+formatBytes(f.size);meta.append(name,detail);
-      const tag=document.createElement('span');tag.className='file-tag';tag.textContent='SESSION FILE';li.append(icon,meta,tag);ul.append(li);
-    });
-  }
-  function supported() { return !!window.showDirectoryPicker && !!window.isSecureContext; }
-  async function startSession() {
-    if(!supported()){toast('Use Chrome or Edge on HTTPS or localhost to access folders.');log('Folder picker unavailable: use a supported browser on HTTPS or localhost.','bad');return;}
-    try {
-      const handle=await window.showDirectoryPicker({mode:'readwrite'});
-      state.handle=handle;state.startTime=Date.now();state.active=true;state.candidates=[];state.log=[];
-      setStatus('active','Session is being tracked', 'Selected folder: '+handle.name, 'Tracking');
-      $('startBtn').disabled=true;$('burnBtn').disabled=false;$('scanBtn').disabled=false;
-      log('Secure session started. Folder: '+handle.name,'good');
-      log('Session start timestamp: '+new Date(state.startTime).toISOString(),'info');
-      log('Tracking direct files by last-modified timestamp.','info');
-      updateTimer();state.timer=setInterval(updateTimer,1000);await scanFolder();
-    } catch(err) {
-      if(err && err.name==='AbortError'){log('Folder selection cancelled. No session started.','warn');return;}
-      log('Could not start session: '+(err?.message||String(err)),'bad');toast('Could not open selected folder.');
-    }
-  }
-  async function scanFolder() {
-    if(!state.active||!state.handle||state.scanning)return;
-    state.scanning=true;$('scanBtn').disabled=true;$('scanStatus').textContent='Scanning…';log('Scanning directory…','info');
-    const found=[];
-    try {
-      for await (const [name,handle] of state.handle.entries()) {
-        if(handle.kind!=='file')continue;
-        try {
-          const file=await handle.getFile();
-          if(file.lastModified>=state.startTime)found.push({name:file.name,lastModified:file.lastModified,size:file.size,handle});
-        } catch(e) { log('Could not inspect '+name+': '+(e?.message||String(e)),'warn'); }
-      }
-      state.candidates=found;renderFiles();log('Scan complete. '+found.length+' matching file(s) found.','good');
-    } catch(err) {
-      log('Directory scan failed: '+(err?.message||String(err)),'bad');toast('Folder scan failed. Check folder permission.');
-    } finally {state.scanning=false;$('scanBtn').disabled=!state.active;}
-  }
-  function openModal() {
-    if(!state.active)return;
-    $('modalCount').textContent=state.candidates.length+' file'+(state.candidates.length===1?'':'s');
-    $('confirmCheck').checked=false;$('confirmBurn').disabled=true;$('confirmModal').classList.add('show');
-  }
-  function closeModal() { $('confirmModal').classList.remove('show'); }
-  async function burnFiles() {
-    closeModal();if(!state.active||!state.handle)return;
-    $('burnBtn').disabled=true;$('scanBtn').disabled=true;
-    log('Burn sequence confirmed by user.','warn');
-    // Refresh just before deleting, so stale or newly changed candidates are not blindly trusted.
-    log('Rechecking selected directory before deletion…','info');
-    const current=[];
-    try {
-      for await (const [name,handle] of state.handle.entries()) {
-        if(handle.kind!=='file')continue;
-        try {const file=await handle.getFile();if(file.lastModified>=state.startTime)current.push({name:file.name,lastModified:file.lastModified,handle});}
-        catch(e){log('Could not recheck '+name+': '+(e?.message||String(e)),'warn');}
-      }
-    } catch(err) {log('Recheck failed; no files deleted: '+(err?.message||String(err)),'bad');$('burnBtn').disabled=false;$('scanBtn').disabled=false;return;}
-    state.candidates=current;renderFiles();
-    let deleted=0, failed=0;
-    for(const item of current) {
-      try {
-        // Ensure the file still appears to be within the session time window immediately before removal.
-        const latest=await item.handle.getFile();
-        if(latest.lastModified<state.startTime){log('Skipped (timestamp no longer matches): '+item.name,'warn');continue;}
-        await state.handle.removeEntry(item.name);
-        deleted++;log('Removed file entry: '+item.name,'good');
-      } catch(err) {failed++;log('Could not remove '+item.name+': '+(err?.message||String(err)),'bad');}
-    }
-    // Revoke only Blob URLs created/registered by this page; the app does not create any by default.
-    for(const url of state.blobUrls){try{URL.revokeObjectURL(url)}catch{}}
-    state.blobUrls.clear();
-    // Remove only Session Burner namespaced keys, not all data belonging to this website/origin.
-    try {
-      const keys=[];for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i);if(k&&k.startsWith('session-burner:'))keys.push(k)}
-      keys.forEach(k=>localStorage.removeItem(k));
-      const skeys=[];for(let i=0;i<sessionStorage.length;i++){const k=sessionStorage.key(i);if(k&&k.startsWith('session-burner:'))skeys.push(k)}
-      skeys.forEach(k=>sessionStorage.removeItem(k));
-      log('Cleared Session Burner namespaced browser storage and temporary Blob URLs.','good');
-    } catch(err) {log('Browser storage cleanup was blocked: '+(err?.message||String(err)),'warn');}
-    state.active=false;state.handle=null;state.startTime=0;state.candidates=[];clearInterval(state.timer);state.timer=null;
-    $('duration').textContent='00:00:00';renderFiles();
-    setStatus('done','Session finished', 'Selected files processed. Review the activity log for results.', 'Complete');
-    $('startBtn').disabled=false;$('burnBtn').disabled=true;$('scanBtn').disabled=true;
-    log('Burn complete. Removed '+deleted+' file(s); '+failed+' failure(s).','good');
-    log('Note: file-entry removal is not guaranteed secure erasure or unrecoverability.','warn');
-    toast('Session finished. '+deleted+' file(s) removed.');
-  }
-  $('startBtn').addEventListener('click',startSession);
-  $('scanBtn').addEventListener('click',scanFolder);
-  $('burnBtn').addEventListener('click',openModal);
-  $('cancelBurn').addEventListener('click',closeModal);
-  $('confirmCheck').addEventListener('change',e=>$('confirmBurn').disabled=!e.target.checked);
-  $('confirmBurn').addEventListener('click',()=>{if($('confirmCheck').checked)burnFiles()});
-  $('confirmModal').addEventListener('click',e=>{if(e.target===$('confirmModal'))closeModal()});
-  document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
-  $('clearLogBtn').addEventListener('click',()=>{state.log=[];renderLog();log('Activity log view cleared.','warn')});
-  if(!supported()) log('Heads up: directory access requires a Chromium-based browser on HTTPS or localhost.','warn');
-  else log('Ready. Start a session to choose a folder.','info');
+'use strict';
+const $ = id => document.getElementById(id);
+const state = {dir:null, dirName:'', id:'', start:null, end:null, active:false, files:new Map(), events:[], blobUrls:new Set(), interval:null, report:null, appTempKeys:[]};
+const bytes = n => { if(!Number.isFinite(n)||n<=0)return '0 B'; const units=['B','KB','MB','GB'];let i=0;while(n>=1024&&i<units.length-1){n/=1024;i++}return `${n.toFixed(i?1:0)} ${units[i]}`; };
+const stamp = d => new Date(d).toLocaleString([], {year:'numeric',month:'short',day:'2-digit',hour:'2-digit',minute:'2-digit',second:'2-digit'});
+const timeOnly = d => new Date(d).toLocaleTimeString([], {hour12:false});
+function toast(msg){$('toast').textContent=msg;$('toast').classList.add('show');setTimeout(()=>$('toast').classList.remove('show'),3000)}
+function log(kind, message, details={}) { const ev={time:new Date().toISOString(),kind,message,...details};state.events.unshift(ev);renderLog();renderStats();return ev; }
+function renderLog(){const el=$('activityLog');if(!state.events.length){el.innerHTML='<div class="logline">Waiting for first activity…</div>';return}el.innerHTML=state.events.slice(0,60).map(e=>`<div class="logline"><span class="logtime">${escapeHtml(timeOnly(e.time))}</span> <span class="logkind">${escapeHtml(e.kind.toUpperCase())}</span><br>${escapeHtml(e.message)}</div>`).join('')}
+function escapeHtml(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function formatElapsed(ms){let n=Math.max(0,Math.floor(ms/1000));const h=String(Math.floor(n/3600)).padStart(2,'0');n%=3600;const m=String(Math.floor(n/60)).padStart(2,'0');const s=String(n%60).padStart(2,'0');return `${h}:${m}:${s}`}
+function renderTimer(){if(state.start)$('timer').textContent=formatElapsed((state.active?Date.now():state.end)-state.start)}
+function renderStats(){const arr=[...state.files.values()];$('fileCount').textContent=`${arr.length} tracked`;$('statFiles').textContent=arr.length;$('statSize').textContent=bytes(arr.reduce((s,f)=>s+(f.size||0),0));$('statEvents').textContent=state.events.length}
+function renderFiles(){const el=$('fileList'),arr=[...state.files.values()];if(!arr.length){el.innerHTML='<div class="empty"><div style="font-size:25px">▤</div><b>Your workspace is ready</b>Create a note or import a file to begin tracking.</div>';renderStats();return}
+ el.innerHTML=arr.map(f=>`<div class="file-row"><div class="file-icon">${f.kind==='download'?'⇩':f.kind==='import'?'↑':'▤'}</div><div class="file-details"><strong>${escapeHtml(f.name)}</strong><small>${bytes(f.size)} · ${escapeHtml(f.modified?stamp(f.modified):'Modified time unavailable')}</small></div><span class="tag">${escapeHtml(f.kind==='created'?'APP CREATED':f.kind==='download'?'APP DOWNLOAD':f.kind==='import'?'IMPORTED':'TRACKED')}</span></div>`).join('');renderStats()}
+function setActiveUI(){ $('landing').classList.add('hidden');$('workspace').classList.add('active');$('folderName').textContent=state.dirName;$('sessionIdLabel').textContent='SESSION '+state.id;$('startedAt').textContent='Started '+stamp(state.start);$('statusText').textContent='ACTIVE SESSION';$('statusPill').style.background='var(--green-bg)';$('statusPill').style.color='var(--green)';renderFiles();renderLog();renderTimer(); }
+async function startSession(){if(!window.showDirectoryPicker){toast('Folder access is not supported in this browser. Try Chrome or Edge on HTTPS/localhost.');return}
+ try{const dir=await window.showDirectoryPicker({mode:'readwrite'});state.dir=dir;state.dirName=dir.name||'Selected workspace';state.id=(crypto.randomUUID?crypto.randomUUID():('SBP-'+Date.now()+'-'+Math.random().toString(36).slice(2,8))).toUpperCase();state.start=Date.now();state.end=null;state.active=true;state.files.clear();state.events=[];state.blobUrls.clear();state.report=null;log('session','Secure session started. Workspace access granted by user.');setActiveUI();state.interval=setInterval(renderTimer,1000);toast('Session started. Your selected folder is connected.');}
+ catch(e){if(e.name!=='AbortError')toast('Could not open the folder: '+e.message)}
+}
+function ensureActive(){if(!state.active||!state.dir){toast('Start a session first.');return false}return true}
+function safeName(name){return String(name||'session-file.txt').replace(/[\/\\:*?"<>|]/g,'_').replace(/^\.+$/,'file').slice(0,120)}
+async function createFile(name, content, kind='created'){if(!ensureActive())return;name=safeName(name);try{const handle=await state.dir.getFileHandle(name,{create:true});const writable=await handle.createWritable();await writable.write(content);await writable.close();const file=await handle.getFile();state.files.set(name,{name,size:file.size,modified:file.lastModified,kind,handle,authorized:true});log(kind==='download'?'download':'file',`${kind==='download'?'Application-managed download saved':'File saved'}: ${name}`,{name});renderFiles();toast(`Saved ${name}`)}catch(e){log('error',`Could not save ${name}: ${e.message}`);toast('Could not save file. Check folder permissions and file name.')}}
+$('startBtn').addEventListener('click',startSession);
+$('howBtn').addEventListener('click',()=>$('how').scrollIntoView({behavior:'smooth'}));
+$('homeBtn').addEventListener('click',()=>{if(state.active){toast('End the active session before leaving.');return}$('workspace').classList.remove('active');$('landing').classList.remove('hidden')});
+$('createBtn').addEventListener('click',()=>{if(!ensureActive())return;$('noteName').value='session-notes.txt';$('noteText').value='';openModal('noteModal');$('noteName').focus()});
+$('saveNoteBtn').addEventListener('click',async()=>{const name=$('noteName').value.trim();if(!name){toast('Enter a file name.');return}await createFile(name,$('noteText').value,'created');closeModal('noteModal')});
+$('importBtn').addEventListener('click',()=>{if(ensureActive())$('importInput').click()});
+$('importInput').addEventListener('change',async e=>{const f=e.target.files&&e.target.files[0];if(!f)return;await createFile(f.name,f,'import');e.target.value=''});
+$('downloadBtn').addEventListener('click',async()=>{if(!ensureActive())return;const content=`Session Burner Pro controlled download\nCreated: ${new Date().toISOString()}\nSession ID: ${state.id}\n\nThis is a sample application-managed download file.`;await createFile('session-download.txt',content,'download')});
+$('refreshBtn').addEventListener('click',async()=>{if(!ensureActive())return;try{let seen=0;for await(const [name,handle] of state.dir.entries()){if(handle.kind!=='file')continue;seen++;const file=await handle.getFile();const old=state.files.get(name);if(old){old.size=file.size;old.modified=file.lastModified;old.handle=handle}else{log('scan',`Untracked file found during rescan; left untouched: ${name}`)}}log('scan',`Workspace rescanned. ${seen} file(s) found; untracked files were not automatically marked for deletion.`);renderFiles();toast('Rescan complete. Untracked files remain untouched.')}catch(e){log('error','Rescan failed: '+e.message);toast('Rescan failed: '+e.message)}});
+function openModal(id){$(id).classList.add('open')}function closeModal(id){$(id).classList.remove('open')}
+document.querySelectorAll('[data-close]').forEach(b=>b.addEventListener('click',()=>closeModal(b.dataset.close)));
+document.querySelectorAll('.modal-backdrop').forEach(m=>m.addEventListener('click',e=>{if(e.target===m&&m.id!=='reportModal')closeModal(m.id)}));
+$('endBtn').addEventListener('click',async()=>{if(!ensureActive())return;try{let count=0;for await(const [name,handle] of state.dir.entries()){if(handle.kind!=='file')continue;count++;const f=await handle.getFile();const tracked=state.files.get(name);if(tracked){tracked.size=f.size;tracked.modified=f.lastModified;tracked.handle=handle}else{log('scan',`Review note: untracked item excluded from deletion: ${name}`)}}log('session','User requested session end. Cleanup review prepared.');state.active=false;state.end=Date.now();clearInterval(state.interval);renderTimer();prepareReview();openModal('confirmModal')}catch(e){log('error','Could not complete workspace rescan: '+e.message);toast('Could not prepare review: '+e.message);state.active=true;state.end=null;state.interval=setInterval(renderTimer,1000)}});
+function prepareReview(){const list=$('reviewList');const files=[...state.files.values()];$('reviewCount').textContent=files.length;$('reviewSize').textContent=bytes(files.reduce((s,f)=>s+f.size,0));$('tempCount').textContent=state.blobUrls.size+1;if(!files.length)list.innerHTML='<div class="review-item"><div><strong>No tracked files to remove</strong><small>Untracked files in the folder will be left untouched.</small></div></div>';else list.innerHTML=files.map((f,i)=>`<label class="review-item"><input type="checkbox" checked data-burn-name="${escapeHtml(f.name)}"><div><strong>${escapeHtml(f.name)}</strong><small>${bytes(f.size)} · ${escapeHtml(f.modified?stamp(f.modified):'Modified time unavailable')}</small></div></label>`).join('');$('reviewOther').textContent=`Workspace scan found ${files.length} tracked file(s). Untracked files are excluded. Recorded events: ${state.events.length}. Application login/logout events: not applicable (no authentication implemented).`}
+$('cancelBurnBtn').addEventListener('click',()=>{closeModal('confirmModal');state.active=true;state.end=null;state.interval=setInterval(renderTimer,1000);$('statusText').textContent='ACTIVE SESSION';log('session','Cleanup cancelled by user. Session resumed.');renderTimer()});
+$('confirmBurnBtn').addEventListener('click',async()=>{const btn=$('confirmBurnBtn');btn.disabled=true;btn.textContent='Cleaning up…';const selected=[...document.querySelectorAll('[data-burn-name]:checked')].map(el=>el.dataset.burnName);const result={removed:[],skipped:[],failed:[],tempCleared:0,sessionDataCleared:false,details:[]};
+ for(const name of selected){const record=state.files.get(name);if(!record||!record.authorized){result.skipped.push(name);result.details.push({kind:'SKIPPED',message:`Not authorized or no longer tracked: ${name}`});continue}try{const current=await state.dir.getFileHandle(name);const f=await current.getFile();if(record.handle&&record.handle.name!==name)throw new Error('File identity changed');await state.dir.removeEntry(name);result.removed.push(name);result.details.push({kind:'REMOVED',message:`Removed: ${name}`});log('cleanup',`Removed authorized file: ${name}`)}catch(e){if(e.name==='NotFoundError'){result.skipped.push(name);result.details.push({kind:'SKIPPED',message:`Already missing: ${name}`})}else{result.failed.push(name);result.details.push({kind:'ERROR',message:`Failed to remove ${name}: ${e.message}`});log('error',`Failed to remove ${name}: ${e.message}`)}}}
+ for(const url of state.blobUrls){try{URL.revokeObjectURL(url);result.tempCleared++}catch{}}
+ try{sessionStorage.removeItem('sbp_session_state');result.sessionDataCleared=true;result.tempCleared++;}catch(e){result.details.push({kind:'ERROR',message:'Could not clear app sessionStorage: '+e.message})}
+ // Clear only this application's explicitly named temporary key, not all origin storage.
+ try{localStorage.removeItem('sbp_temp_session');result.tempCleared++;}catch(e){result.details.push({kind:'ERROR',message:'Could not clear app temporary key: '+e.message})}
+ result.details.push({kind:'INFO',message:'No authentication is configured; no login/logout event or logout action was available.'});
+ result.details.push({kind:'INFO',message:'Browser/system history, unrelated site storage, and cloud copies were not accessed.'});
+ const allOk=result.failed.length===0&&result.skipped.length===0;const anyDone=result.removed.length>0||result.sessionDataCleared;
+ const status=allOk?'COMPLETED':(anyDone?'PARTIALLY COMPLETED':'FAILED');
+ state.end=state.end||Date.now();state.active=false;clearInterval(state.interval);state.report={status,removed:result.removed,skipped:result.skipped,failed:result.failed,tempCleared:result.tempCleared,sessionDataCleared:result.sessionDataCleared,details:result.details,start:state.start,end:state.end,id:state.id,duration:formatElapsed(state.end-state.start),events:[...state.events]};
+ // Clear in-memory file tracking after report data is captured.
+ state.files.clear();state.blobUrls.clear();sessionStorage.removeItem('sbp_session_state');
+ closeModal('confirmModal');showReport(state.report);btn.disabled=false;btn.textContent='Confirm & Burn';
+});
+function showReport(r){$('reportTitle').textContent=r.status==='COMPLETED'?'Session Completed':r.status==='PARTIALLY COMPLETED'?'Session Partially Completed':'Cleanup Failed';$('reportStatus').textContent=r.status;$('reportStatus').className='report-status '+(r.status==='COMPLETED'?'':r.status==='PARTIALLY COMPLETED'?'partial':'failed');$('reportIcon').textContent=r.status==='COMPLETED'?'✓':r.status==='PARTIALLY COMPLETED'?'!':'×';$('reportIntro').textContent=`Session ${r.id} ran from ${stamp(r.start)} to ${stamp(r.end)}. Duration: ${r.duration}. This report reflects operations the browser actually confirmed.`;const items=[['Session ID',r.id],['Duration',r.duration],['Files removed',r.removed.length],['Files skipped',r.skipped.length],['Failed attempts',r.failed.length],['App data cleanup',r.sessionDataCleared?'Attempted':'Not confirmed'],['Start time',stamp(r.start)],['End time',stamp(r.end)]];$('reportGrid').innerHTML=items.map(x=>`<div class="report-item"><span>${escapeHtml(x[0])}</span><strong>${escapeHtml(x[1])}</strong></div>`).join('');$('reportLog').innerHTML=r.details.map(d=>`<div class="logline"><span class="logkind">${escapeHtml(d.kind)}</span><br>${escapeHtml(d.message)}</div>`).join('');openModal('reportModal')}
+$('exportLogBtn').addEventListener('click',()=>downloadText(`session-burner-${state.id||'activity'}-activity.json`,JSON.stringify({sessionId:state.id,events:state.events},null,2),'application/json'));
+$('saveReportBtn').addEventListener('click',()=>{if(state.report)downloadText(`session-burner-${state.report.id}-report.json`,JSON.stringify(state.report,null,2),'application/json')});
+function downloadText(name,text,type='text/plain'){const url=URL.createObjectURL(new Blob([text],{type}));state.blobUrls.add(url);const a=document.createElement('a');a.href=url;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>{URL.revokeObjectURL(url);state.blobUrls.delete(url)},1000)}
+$('newSessionBtn').addEventListener('click',()=>{closeModal('reportModal');$('workspace').classList.remove('active');$('landing').classList.remove('hidden');state.dir=null;state.dirName='';state.id='';state.start=null;state.end=null;state.active=false;state.files.clear();state.events=[];state.report=null;$('fileList').innerHTML='<div class="empty"><div style="font-size:25px">▤</div><b>Your workspace is ready</b>Create a note or import a file to begin tracking.</div>';$('folderName').textContent='No folder selected';$('timer').textContent='00:00:00';renderLog();renderStats();window.scrollTo({top:0,behavior:'smooth'})});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){document.querySelectorAll('.modal-backdrop.open').forEach(m=>{if(m.id!=='reportModal')closeModal(m.id)})}});
 })();
 </script>
 </body>
