@@ -1,500 +1,230 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#FDFBF7">
-<title>Session Burner Pro</title>
+<title>Session Burner Pro — A clean start begins here</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root {
-  color-scheme: light;
-  --bg:#FDFBF7;
-  --card:#FFFFFF;
-  --ink:#292821;
-  --muted:#898579;
-  --line:#EEE9DF;
-  --gold:#B18A51;
-  --terra:#B96F56;
-  --green:#527D64;
-  --shadow:0 12px 38px rgba(66,53,31,.055);
-  font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);min-height:100vh}
-button{font:inherit;cursor:pointer}
-button:focus-visible,input:focus-visible{outline:3px solid #C5A778;outline-offset:3px}
-button:disabled{opacity:.45;cursor:not-allowed}
-.shell{max-width:1060px;margin:auto;padding:34px 28px 48px}
-header{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-bottom:27px;border-bottom:1px solid var(--line)}
-.brand{display:flex;align-items:center;gap:13px}
-.logo{width:42px;height:42px;border-radius:14px;background:#F1E8D9;display:grid;place-items:center;color:#876638;font-size:22px}
-.brand-name{font-size:17px;font-weight:750;letter-spacing:-.5px}
-.brand-sub{font-size:11px;color:var(--muted);margin-top:4px;letter-spacing:1.3px;text-transform:uppercase}
-.pill{border:1px solid var(--line);border-radius:30px;padding:9px 13px;font-size:11px;color:var(--muted);display:flex;align-items:center;gap:8px;background:#fff}
-.dot{width:7px;height:7px;border-radius:50%;background:#B5AA94}
-.dot.active{background:var(--green);box-shadow:0 0 0 4px #527d6419}
-main{padding-top:52px}
-.eyebrow{font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);font-weight:700}
-h1{font-size:clamp(36px,5vw,55px);line-height:1.07;letter-spacing:-2.8px;font-weight:650;margin:16px 0}
-h1 span{color:#A99C83}
-.intro{max-width:540px;color:#817D73;font-size:14px;line-height:1.8;margin:0}
-.hero{display:flex;justify-content:space-between;align-items:end;gap:32px;flex-wrap:wrap;margin-bottom:34px}
-.primary,.secondary,.danger{border:0;border-radius:12px;padding:14px 19px;font-size:12px;font-weight:650;transition:transform .15s,background .15s}
-.primary{background:var(--ink);color:white;box-shadow:0 5px 14px #29282113}
-.primary:hover{background:#484338;transform:translateY(-1px)}
-.secondary{background:#F2EADF;color:#554630}
-.danger{background:#F7E9E3;color:#9D4937}
-button:active{transform:scale(.985)}
-.actions{display:flex;gap:10px;flex-wrap:wrap}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-.card{background:var(--card);border:1px solid #F0EBE2;border-radius:18px;padding:24px;box-shadow:var(--shadow);min-width:0}
-.card-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:22px}
-.card-title{font-size:13px;font-weight:700}
-.card-index{font-size:10px;color:#AAA293;letter-spacing:1px}
-.status-row{display:flex;align-items:center;gap:13px;padding:17px;background:#FAF8F3;border:1px solid #F1EDE5;border-radius:13px}
-.status-icon{width:39px;height:39px;display:grid;place-items:center;border-radius:12px;background:#EEE8DB;color:#896E43;font-size:18px}
-.status-label{font-size:13px;font-weight:650}
-.status-desc{font-size:11px;color:var(--muted);margin-top:5px;overflow-wrap:anywhere}
-.metrics{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:15px}
-.metric{padding:15px 14px;border:1px solid var(--line);border-radius:12px;min-height:87px}
-.metric-number{font-size:27px;letter-spacing:-1px;font-weight:650}
-.metric-label{font-size:10px;color:var(--muted);margin-top:6px}
-.path{font-size:11px;color:var(--muted);overflow-wrap:anywhere;line-height:1.6;margin-top:14px}
-.wide{grid-column:1/-1}
-.log{background:#FAF9F5;border:1px solid var(--line);border-radius:12px;height:208px;overflow:auto;padding:14px;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:11px;line-height:1.8}
-.log-line{display:grid;grid-template-columns:65px 1fr;gap:8px;padding:4px 0;border-bottom:1px solid #F0ECE4;overflow-wrap:anywhere}
-.log-time{color:#A49A88}
-.log-msg{color:#655F53}
-.log-msg.good{color:var(--green)}
-.log-msg.warn{color:#A65D44}
-.log-msg.error{color:#B34B3D}
-.log-msg.info{color:#8B744D}
-.log-empty{color:#A59E91;padding:15px 0}
-.card-footer{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-top:14px;flex-wrap:wrap}
-.small{font-size:10px;color:var(--muted);line-height:1.7}
-.file-list{display:flex;flex-direction:column;gap:9px;margin-top:15px}
-.file-row{display:flex;align-items:center;gap:12px;border:1px solid var(--line);border-radius:11px;padding:12px;min-width:0}
-.file-symbol{font-size:18px}
-.file-info{min-width:0;flex:1}
-.file-name{font-size:12px;font-weight:600;overflow-wrap:anywhere}
-.file-meta{font-size:10px;color:var(--muted);margin-top:5px;line-height:1.5}
-.badge{font-size:10px;color:#976B37;background:#F8F0E1;padding:6px 8px;border-radius:7px;white-space:nowrap}
-.empty{padding:26px 12px;text-align:center;font-size:12px;color:var(--muted);line-height:1.8}
-.notice{margin-top:20px;border:1px solid #EDE3D1;background:#FAF5EA;border-radius:13px;padding:15px 17px;color:#78684F;font-size:11px;line-height:1.8}
-footer{padding-top:26px;margin-top:30px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:#A29B8E;font-size:10px}
-.overlay{position:fixed;inset:0;background:#28251E77;display:none;align-items:center;justify-content:center;padding:20px;z-index:10}
-.overlay.show{display:flex}
-.modal{width:min(460px,100%);background:var(--bg);border-radius:20px;padding:27px;box-shadow:0 25px 100px #0002}
-.modal-symbol{width:46px;height:46px;border-radius:14px;background:#F4E6DE;display:grid;place-items:center;font-size:21px;color:#A45B46}
-.modal h2{font-size:23px;letter-spacing:-.8px;margin:18px 0 10px}
-.modal p{font-size:12px;color:var(--muted);line-height:1.8}
-.modal-actions{display:flex;gap:10px;margin-top:22px}
-.modal-actions button{flex:1}
-@media(max-width:680px){
- .shell{padding:22px 16px 32px}
- main{padding-top:36px}
- .grid{grid-template-columns:1fr}
- .wide{grid-column:auto}
- h1{letter-spacing:-1.8px}
- .hero{gap:20px}
- header{align-items:flex-start}
- .pill{font-size:10px}
- .card{padding:19px}
-}
-@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+:root{--bg:#FDFBF7;--paper:#fff;--ink:#1A1918;--muted:#77736d;--gold:#C5A059;--gold-soft:#f6efdf;--line:#eee9e0;--red:#b65e4b;--green:#47775c;--shadow:0 18px 55px rgba(65,47,24,.055);--radius:22px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:"Plus Jakarta Sans",system-ui,sans-serif;min-height:100vh}button{font:inherit;cursor:pointer}button:focus-visible{outline:3px solid #d7b56e;outline-offset:3px}.shell{max-width:1120px;margin:auto;padding:28px 24px 44px}.topbar{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:7px 0 26px;border-bottom:1px solid var(--line)}.brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:-.6px}.brand-mark{width:38px;height:38px;border-radius:13px;background:var(--ink);display:grid;place-items:center;color:#f5e5c3}.brand-mark svg{width:21px}.brand small{display:block;font-size:10px;letter-spacing:1.7px;text-transform:uppercase;color:var(--muted);font-weight:600;margin-top:2px}.top-right{display:flex;align-items:center;gap:10px;color:var(--muted);font-size:12px}.pill{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line);background:#fff;padding:8px 12px;border-radius:99px}.dot{width:7px;height:7px;border-radius:50%;background:#bdb8af}.dot.live{background:#4b9368;box-shadow:0 0 0 4px #e7f2e9}.hero{padding:58px 0 36px;max-width:770px}.eyebrow{font-size:11px;font-weight:800;letter-spacing:2.4px;text-transform:uppercase;color:#9a7b3d;display:flex;align-items:center;gap:9px}.eyebrow:before{content:"";width:22px;height:1px;background:var(--gold)}h1{font-size:clamp(38px,6vw,66px);line-height:1.06;letter-spacing:-3.4px;margin:18px 0 18px;font-weight:700}h1 em{font-style:normal;color:var(--gold)}.hero p{color:var(--muted);font-size:15px;line-height:1.8;max-width:590px;margin:0}.layout{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(300px,.85fr);gap:20px;align-items:start}.card{background:var(--paper);border:1px solid rgba(222,214,201,.72);border-radius:var(--radius);box-shadow:var(--shadow);padding:25px}.card-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:22px}.card-head h2{font-size:15px;letter-spacing:-.3px;margin:0}.step{font:11px "IBM Plex Mono",monospace;color:#9c968b;background:#f8f5ef;border-radius:7px;padding:6px 8px}.status-panel{border:1px solid var(--line);background:#fdfbf7;border-radius:16px;padding:19px;display:flex;align-items:center;gap:14px;margin-bottom:18px}.status-icon{width:43px;height:43px;display:grid;place-items:center;border-radius:13px;background:var(--gold-soft);color:#9b7834;flex-shrink:0}.status-icon svg{width:21px}.status-copy{min-width:0;flex:1}.status-copy strong{display:block;font-size:13px;margin-bottom:4px}.status-copy span{display:block;color:var(--muted);font-size:11px;line-height:1.5;overflow-wrap:anywhere}.status-label{font-size:10px;text-transform:uppercase;letter-spacing:1px;font-weight:800;color:var(--muted)}.actions{display:grid;grid-template-columns:1fr;gap:10px}.btn{border:0;border-radius:12px;padding:14px 17px;font-size:12px;font-weight:800;letter-spacing:.1px;display:flex;justify-content:center;align-items:center;gap:9px;transition:transform .15s,background .15s}.btn:hover:not(:disabled){transform:translateY(-1px)}.btn:disabled{opacity:.42;cursor:not-allowed}.btn svg{width:16px;height:16px}.btn-primary{background:var(--ink);color:white}.btn-primary:hover:not(:disabled){background:#393630}.btn-danger{background:#b65e4b;color:white}.btn-danger:hover:not(:disabled){background:#9d4c3c}.btn-quiet{background:#f6f3ed;color:#5d574f;border:1px solid var(--line)}.fineprint{display:flex;gap:8px;color:#89837a;font-size:10px;line-height:1.65;margin:15px 1px 0}.fineprint svg{width:14px;flex-shrink:0;margin-top:1px}.metric-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}.metric{border:1px solid var(--line);border-radius:13px;padding:15px}.metric span{display:block;font-size:10px;color:var(--muted);margin-bottom:7px}.metric strong{font-size:21px;letter-spacing:-.8px}.metric small{font-size:10px;color:var(--muted);font-weight:500}.log-card{margin-top:20px}.log-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:16px}.log-head h2{font-size:14px;margin:0}.log-actions{display:flex;align-items:center;gap:8px}.text-btn{border:0;background:transparent;color:#8b8376;font-size:10px;font-weight:700;padding:5px}.logbox{background:#201f1d;border-radius:14px;padding:16px;min-height:190px;max-height:280px;overflow:auto;color:#d6d0c4;font:11px/1.9 "IBM Plex Mono",monospace}.logline{display:flex;gap:10px;overflow-wrap:anywhere;white-space:pre-wrap}.logtime{color:#8c877e;flex-shrink:0}.logline.good .logmsg{color:#b9d9bf}.logline.warn .logmsg{color:#e4c58b}.logline.bad .logmsg{color:#e6a497}.logline.info .logmsg{color:#d6d0c4}.log-empty{color:#817b71}.directory-list{margin-top:18px;border:1px solid var(--line);border-radius:13px;overflow:hidden}.list-top{padding:12px 14px;background:#fcfaf6;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:8px;font-size:10px;color:var(--muted)}.file-list{padding:0;margin:0;list-style:none}.file-list li{padding:12px 14px;border-bottom:1px solid #f3efe8;display:flex;gap:10px;align-items:center;font-size:11px}.file-list li:last-child{border-bottom:0}.file-icon{width:29px;height:29px;border-radius:9px;background:#f5f1e9;color:#8b7753;display:grid;place-items:center;flex-shrink:0}.file-icon svg{width:15px}.file-meta{min-width:0;flex:1}.file-meta strong{display:block;overflow-wrap:anywhere;font-size:11px;font-weight:700}.file-meta span{display:block;color:var(--muted);font-size:10px;margin-top:3px}.file-tag{font-size:9px;font-weight:800;color:#a45c4b;background:#fbefeb;padding:5px 7px;border-radius:6px;white-space:nowrap}.empty-files{padding:24px 15px;color:#999186;text-align:center;font-size:11px;line-height:1.7}.side-card{margin-bottom:20px}.side-card:last-child{margin-bottom:0}.side-card h2{font-size:14px;margin:0 0 16px}.step-list{display:grid;gap:15px}.step-item{display:flex;gap:12px}.step-num{width:27px;height:27px;border-radius:9px;background:#f6f1e6;color:#9a7b3d;font:11px "IBM Plex Mono",monospace;display:grid;place-items:center;flex-shrink:0}.step-item strong{font-size:11px;display:block;margin:1px 0 5px}.step-item p{font-size:10px;color:var(--muted);line-height:1.7;margin:0}.notice{padding:14px;border-radius:13px;background:#fbf3e9;border:1px solid #f0e1ca;color:#776244;font-size:10px;line-height:1.75}.notice strong{display:block;font-size:11px;margin-bottom:4px}.privacy-row{display:flex;gap:10px;align-items:flex-start;padding:12px 0;border-bottom:1px solid #f2eee7}.privacy-row:last-child{border-bottom:0;padding-bottom:0}.privacy-row svg{width:16px;height:16px;color:#9c844e;flex-shrink:0}.privacy-row strong{font-size:10px;display:block;margin-bottom:4px}.privacy-row span{display:block;color:var(--muted);font-size:10px;line-height:1.65}.footer{display:flex;justify-content:space-between;gap:16px;padding-top:25px;color:#9b958b;font-size:10px}.footer span:last-child{text-align:right}.modal-backdrop{position:fixed;inset:0;background:rgba(28,25,21,.45);backdrop-filter:blur(5px);display:none;align-items:center;justify-content:center;padding:20px;z-index:5}.modal-backdrop.show{display:flex}.modal{width:min(440px,100%);background:#fff;border-radius:22px;padding:27px;box-shadow:0 25px 100px #0002;animation:rise .18s ease-out}.modal-symbol{width:45px;height:45px;background:#fbefeb;color:var(--red);border-radius:14px;display:grid;place-items:center}.modal-symbol svg{width:22px}.modal h2{font-size:21px;letter-spacing:-.8px;margin:18px 0 9px}.modal p{font-size:12px;color:var(--muted);line-height:1.8;margin:0}.modal-count{margin:17px 0;padding:14px;border:1px solid var(--line);border-radius:12px;background:#fcfaf7;display:flex;justify-content:space-between;gap:10px;font-size:11px}.modal-count strong{color:var(--red)}.modal-check{display:flex;align-items:flex-start;gap:9px;margin:15px 0 20px;font-size:10px;color:#716b62;line-height:1.6}.modal-check input{margin-top:2px;accent-color:var(--red)}.modal-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px}.toast{position:fixed;bottom:22px;left:50%;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:#22211f;color:white;padding:12px 17px;border-radius:12px;font-size:11px;box-shadow:var(--shadow);transition:.2s;z-index:10;max-width:90vw}.toast.show{opacity:1;transform:translate(-50%,0)}@keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}@media(max-width:780px){.shell{padding:18px 15px 30px}.hero{padding:43px 0 28px}h1{letter-spacing:-2px}.layout{grid-template-columns:1fr}.top-right .secure-copy{display:none}.footer{flex-direction:column}.footer span:last-child{text-align:left}}@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
 </style>
 </head>
 <body>
 <div class="shell">
-  <header>
-    <div class="brand">
-      <div class="logo" aria-hidden="true">◈</div>
-      <div>
-        <div class="brand-name">Session Burner <span style="color:#B18A51">Pro</span></div>
-        <div class="brand-sub">Private workspace utility</div>
-      </div>
-    </div>
-    <div class="pill"><span id="liveDot" class="dot"></span><span id="liveLabel">Ready to begin</span></div>
-  </header>
-
-  <main>
-    <section class="hero">
-      <div>
-        <div class="eyebrow">Your space. Your control.</div>
-        <h1>Leave nothing<br><span>unreviewed.</span></h1>
-        <p class="intro">A local-first session workspace to track recent file changes, review your activity, and create a transparent audit trail. Your files stay on your device.</p>
+<header class="topbar">
+  <div class="brand"><div class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3 19 6v5c0 4.7-3 8-7 10-4-2-7-5.3-7-10V6l7-3Z"/><path d="m9 12 2 2 4-4"/></svg></div><div>session burner<small>ephemeral workspace</small></div></div>
+  <div class="top-right"><span class="secure-copy">Privacy-first by design</span><span class="pill"><span class="dot" id="topDot"></span><span id="topStatus">Not active</span></span></div>
+</header>
+<section class="hero">
+  <div class="eyebrow">Your workspace, on your terms</div>
+  <h1>A clean start<br>begins <em>here.</em></h1>
+  <p>Work in a temporary window. Review what changed. Remove session files when you're done. No account, no uploads — your selected folder stays on your device.</p>
+</section>
+<main class="layout">
+  <div>
+    <section class="card">
+      <div class="card-head"><h2>Secure session</h2><span class="step">01 / SESSION</span></div>
+      <div class="status-panel">
+        <div class="status-icon" id="statusIcon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3 19 6v5c0 4.7-3 8-7 10-4-2-7-5.3-7-10V6l7-3Z"/><path d="M12 8v4m0 4h.01"/></svg></div>
+        <div class="status-copy"><strong id="statusTitle">Ready when you are</strong><span id="statusDesc">Choose a folder to begin tracking changes.</span></div>
+        <span class="status-label" id="statusLabel">Idle</span>
       </div>
       <div class="actions">
-        <button id="startBtn" class="primary">＋ &nbsp; Start Session</button>
-        <button id="finishBtn" class="secondary" disabled>Finish &amp; Review</button>
+        <button class="btn btn-primary" id="startBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3 19 6v5c0 4.7-3 8-7 10-4-2-7-5.3-7-10V6l7-3Z"/><path d="m9 12 2 2 4-4"/></svg>Start Secure Session</button>
+        <button class="btn btn-danger" id="burnBtn" disabled><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3c1 4-3 5-1 8 1-2 3-3 4-5 3 3 5 6 3 10a6.5 6.5 0 0 1-13-1c0-3 2-6 5-8-.3 2-.2 3 1 4 1-3 1-5 1-8Z"/></svg>Finish &amp; Burn Files</button>
+        <button class="btn btn-quiet" id="scanBtn" disabled><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 7v5h-5M4 17v-5h5"/><path d="M5.6 9a7 7 0 0 1 11.6-2L20 12M4 12l2.8 5a7 7 0 0 0 11.6-2"/></svg>Scan folder now</button>
+      </div>
+      <div class="fineprint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3 19 6v5c0 4.7-3 8-7 10-4-2-7-5.3-7-10V6l7-3Z"/><path d="m9 12 2 2 4-4"/></svg><span>Folder access is granted by you, through your browser. Files are only deleted after you review the list and confirm.</span></div>
+      <div class="metric-row">
+        <div class="metric"><span>Session duration</span><strong id="duration">00:00</strong><small> elapsed</small></div>
+        <div class="metric"><span>Changed files found</span><strong id="fileCount">0</strong><small> candidates</small></div>
+      </div>
+      <div class="directory-list">
+        <div class="list-top"><span>SESSION FILE CANDIDATES</span><span id="scanStatus">Not scanned</span></div>
+        <ul class="file-list" id="fileList"><li class="empty-files">Your changed files will appear here after you start a session and scan the selected folder.</li></ul>
       </div>
     </section>
-
-    <div class="grid">
-      <section class="card">
-        <div class="card-head">
-          <div class="card-title">Session overview</div>
-          <div class="card-index">01 / STATUS</div>
-        </div>
-        <div class="status-row">
-          <div class="status-icon" id="statusIcon">◷</div>
-          <div>
-            <div class="status-label" id="statusTitle">No active session</div>
-            <div class="status-desc" id="statusDesc">Choose a directory to begin.</div>
-          </div>
-        </div>
-        <div class="metrics">
-          <div class="metric"><div class="metric-number" id="elapsed">00:00</div><div class="metric-label">SESSION DURATION</div></div>
-          <div class="metric"><div class="metric-number" id="fileCount">—</div><div class="metric-label">FILES FOUND</div></div>
-        </div>
-        <div class="path" id="pathLabel">No directory selected</div>
-      </section>
-
-      <section class="card">
-        <div class="card-head">
-          <div class="card-title">Activity audit</div>
-          <div class="card-index">02 / LIVE LOG</div>
-        </div>
-        <div class="log" id="auditLog" role="log" aria-live="polite" aria-relevant="additions">
-          <div class="log-empty">Your session activity will appear here.</div>
-        </div>
-        <div class="card-footer">
-          <span class="small">Local event log · Current page only</span>
-          <button id="exportBtn" class="secondary">Export log ↗</button>
-        </div>
-      </section>
-
-      <section class="card wide">
-        <div class="card-head">
-          <div class="card-title">Recent file review</div>
-          <div class="card-index">03 / DIRECTORY SCAN</div>
-        </div>
-        <p class="small">Files whose last-modified timestamps are at or after the session start. A timestamp alone cannot prove that a file was created during this session.</p>
-        <div id="fileList" class="file-list">
-          <div class="empty">Start a session and scan your selected directory to see matching files.</div>
-        </div>
-        <div class="card-footer">
-          <span class="small" id="scanLabel">No scan performed</span>
-          <div class="actions">
-            <button id="scanBtn" class="secondary" disabled>Scan directory</button>
-            <button id="reportBtn" class="secondary" disabled>Export report</button>
-          </div>
-        </div>
-      </section>
-    </div>
-
-    <div class="notice"><strong>Privacy &amp; safety.</strong> Directory access is granted explicitly by you. This page cannot reliably detect every download or change in real time. The review identifies timestamp matches; it does not automatically delete files or clear unrelated browser storage.</div>
-  </main>
-
-  <footer>
-    <span>SESSION BURNER PRO · LOCAL-FIRST BY DESIGN</span>
-    <span>No uploads · No external dependencies</span>
-  </footer>
+    <section class="card log-card">
+      <div class="log-head"><h2>Activity log</h2><div class="log-actions"><span class="step" id="logCount">0 EVENTS</span><button class="text-btn" id="clearLogBtn">Clear view</button></div></div>
+      <div class="logbox" id="logbox" role="log" aria-live="polite"><div class="log-empty">Waiting for session activity…</div></div>
+    </section>
+  </div>
+  <aside>
+    <section class="card side-card">
+      <div class="card-head"><h2>How it works</h2><span class="step">02 / FLOW</span></div>
+      <div class="step-list">
+        <div class="step-item"><div class="step-num">01</div><div><strong>Choose your workspace</strong><p>Select a folder using the browser's native permission prompt. The timer starts after access is granted.</p></div></div>
+        <div class="step-item"><div class="step-num">02</div><div><strong>Work as usual</strong><p>Scan checks direct files in the selected folder for last-modified times during this session. Scan again to refresh the list.</p></div></div>
+        <div class="step-item"><div class="step-num">03</div><div><strong>Review, then burn</strong><p>Review candidates and confirm. The app attempts to delete only matching files, then reports each result in the activity log.</p></div></div>
+      </div>
+    </section>
+    <section class="card side-card">
+      <h2>Privacy by design</h2>
+      <div class="privacy-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg><div><strong>Permission-based access</strong><span>Your browser asks you to select and grant access to a folder.</span></div></div>
+      <div class="privacy-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4M8 11h6"/></svg><div><strong>Transparent review</strong><span>Candidate files are listed before deletion; this tool does not delete files silently.</span></div></div>
+      <div class="privacy-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3 19 6v5c0 4.7-3 8-7 10-4-2-7-5.3-7-10V6l7-3Z"/><path d="m9 12 2 2 4-4"/></svg><div><strong>Local-only workflow</strong><span>This page does not upload your files to a server.</span></div></div>
+    </section>
+    <div class="notice"><strong>Important: deletion is not secure erasure</strong>Removing a file entry does not guarantee data is unrecoverable. Backups, cloud sync, trash behavior, filesystem journaling, and SSD wear-leveling may retain copies. Use only on folders and files you own or are authorized to manage.</div>
+  </aside>
+</main>
+<footer class="footer"><span>SESSION BURNER PRO · A clean start begins here.</span><span>Browser-based utility · No files are uploaded</span></footer>
 </div>
-
-<div class="overlay" id="confirmOverlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+<div class="modal-backdrop" id="confirmModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
   <div class="modal">
-    <div class="modal-symbol">⌁</div>
-    <h2 id="modalTitle">Finish this session?</h2>
-    <p>Your session will stop, the selected directory will be scanned, and matching files will be listed for review. No files will be deleted by this action.</p>
-    <p id="modalSummary">You can export the audit log before closing the session.</p>
-    <div class="modal-actions">
-      <button id="cancelBtn" class="secondary">Keep working</button>
-      <button id="confirmBtn" class="primary">Finish &amp; Review</button>
-    </div>
+    <div class="modal-symbol"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3c1 4-3 5-1 8 1-2 3-3 4-5 3 3 5 6 3 10a6.5 6.5 0 0 1-13-1c0-3 2-6 5-8-.3 2-.2 3 1 4 1-3 1-5 1-8Z"/></svg></div>
+    <h2 id="modalTitle">Burn session files?</h2>
+    <p>This will attempt to permanently remove the listed files from the selected folder. This action may not be reversible. Please check the candidates before continuing.</p>
+    <div class="modal-count"><span>Files selected for deletion</span><strong id="modalCount">0 files</strong></div>
+    <label class="modal-check"><input type="checkbox" id="confirmCheck"><span>I have reviewed the file list and understand deletion cannot reliably be undone.</span></label>
+    <div class="modal-actions"><button class="btn btn-quiet" id="cancelBurn">Cancel</button><button class="btn btn-danger" id="confirmBurn" disabled>Burn selected files</button></div>
   </div>
 </div>
-
+<div class="toast" id="toast" role="status"></div>
 <script>
 (() => {
-  "use strict";
-
   const $ = id => document.getElementById(id);
-  const state = {
-    directory: null,
-    startedAt: null,
-    active: false,
-    scanning: false,
-    files: [],
-    events: [],
-    elapsedTimer: null,
-    objectUrls: new Set()
+  const state = { handle:null, startTime:0, active:false, scanning:false, candidates:[], log:[], timer:null, blobUrls:new Set(), appStorageKeys:[] };
+  const icons = {
+    file:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M13 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V10Z"/><path d="M13 3v7h7"/></svg>'
   };
-
-  const supportsPicker = typeof window.showDirectoryPicker === "function";
-
-  function log(message, type = "info") {
-    const entry = { at: new Date().toISOString(), message, type };
-    state.events.push(entry);
-
-    const logBox = $("auditLog");
-    const empty = logBox.querySelector(".log-empty");
-    if (empty) empty.remove();
-
-    const row = document.createElement("div");
-    row.className = "log-line";
-
-    const time = document.createElement("span");
-    time.className = "log-time";
-    time.textContent = new Date(entry.at).toLocaleTimeString();
-
-    const msg = document.createElement("span");
-    msg.className = "log-msg " + type;
-    msg.textContent = message;
-
-    row.append(time, msg);
-    logBox.append(row);
-    logBox.scrollTop = logBox.scrollHeight;
+  function log(message, type='info') {
+    const item = { time:new Date(), message, type }; state.log.push(item);
+    if (state.log.length > 250) state.log.shift();
+    renderLog();
   }
-
-  function setStatus(title, description, active) {
-    $("statusTitle").textContent = title;
-    $("statusDesc").textContent = description;
-    $("liveLabel").textContent = active ? "Tracking active" : title;
-    $("liveDot").classList.toggle("active", active);
-    $("statusIcon").textContent = active ? "◉" : "◷";
+  function renderLog() {
+    const box = $('logbox'); box.replaceChildren();
+    if (!state.log.length) { const e=document.createElement('div');e.className='log-empty';e.textContent='Waiting for session activity…';box.append(e); }
+    state.log.forEach(item => {
+      const line=document.createElement('div');line.className='logline '+item.type;
+      const t=document.createElement('span');t.className='logtime';t.textContent=item.time.toLocaleTimeString([], {hour12:false});
+      const m=document.createElement('span');m.className='logmsg';m.textContent=item.message;
+      line.append(t,m);box.append(line);
+    });
+    $('logCount').textContent=state.log.length+' EVENTS'; box.scrollTop=box.scrollHeight;
   }
-
-  function formatDuration(ms) {
-    const seconds = Math.max(0, Math.floor(ms / 1000));
-    const h = String(Math.floor(seconds / 3600)).padStart(2, "0");
-    const m = String(Math.floor((seconds % 3600) / 60)).padStart(2, "0");
-    const s = String(seconds % 60).padStart(2, "0");
-    return h === "00" ? `${m}:${s}` : `${h}:${m}:${s}`;
+  let toastTimer;
+  function toast(msg) { const el=$('toast');el.textContent=msg;el.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove('show'),2600); }
+  function setStatus(mode, title, desc, label) {
+    $('statusTitle').textContent=title; $('statusDesc').textContent=desc; $('statusLabel').textContent=label;
+    $('topStatus').textContent=mode==='active'?'Tracking active':mode==='done'?'Session ended':'Not active';
+    $('topDot').className='dot'+(mode==='active'?' live':'');
+    $('statusIcon').style.background=mode==='active'?'#eaf4ec':mode==='done'?'#f2f0eb':'#f6efdf';
+    $('statusIcon').style.color=mode==='active'?'#47775c':mode==='done'?'#77736d':'#9b7834';
   }
-
-  function releaseObjectUrls() {
-    for (const url of state.objectUrls) URL.revokeObjectURL(url);
-    state.objectUrls.clear();
-  }
-
-  function downloadText(filename, content, type = "text/plain") {
-    const url = URL.createObjectURL(new Blob([content], { type }));
-    state.objectUrls.add(url);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = filename;
-    document.body.append(a);
-    a.click();
-    a.remove();
-    setTimeout(() => {
-      URL.revokeObjectURL(url);
-      state.objectUrls.delete(url);
-    }, 1000);
-  }
-
-  function exportLog() {
-    downloadText(
-      "session-burner-audit.txt",
-      state.events.map(e => `[${e.at}] [${e.type.toUpperCase()}] ${e.message}`).join("\n") || "No events recorded."
-    );
-    log("Audit log export requested.", "good");
-  }
-
+  function fmtDuration(ms) { const s=Math.max(0,Math.floor(ms/1000));return String(Math.floor(s/3600)).padStart(2,'0')+':'+String(Math.floor((s%3600)/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0'); }
+  function updateTimer() { if(state.active) $('duration').textContent=fmtDuration(Date.now()-state.startTime); }
+  function formatBytes(bytes) { if(bytes<1024)return bytes+' B';if(bytes<1048576)return (bytes/1024).toFixed(1)+' KB';return (bytes/1048576).toFixed(1)+' MB'; }
   function renderFiles() {
-    const list = $("fileList");
-    list.replaceChildren();
-
-    if (!state.files.length) {
-      const empty = document.createElement("div");
-      empty.className = "empty";
-      empty.textContent = "No matching files found in this scan.";
-      list.append(empty);
-      $("fileCount").textContent = "0";
-      $("reportBtn").disabled = true;
-      return;
-    }
-
-    $("fileCount").textContent = String(state.files.length);
-    $("reportBtn").disabled = false;
-
-    for (const file of state.files) {
-      const row = document.createElement("div");
-      row.className = "file-row";
-
-      const symbol = document.createElement("span");
-      symbol.className = "file-symbol";
-      symbol.textContent = "▤";
-
-      const info = document.createElement("div");
-      info.className = "file-info";
-
-      const name = document.createElement("div");
-      name.className = "file-name";
-      name.textContent = file.name;
-
-      const meta = document.createElement("div");
-      meta.className = "file-meta";
-      meta.textContent = `${file.size.toLocaleString()} bytes · Modified ${new Date(file.lastModified).toLocaleString()}`;
-
-      const badge = document.createElement("span");
-      badge.className = "badge";
-      badge.textContent = "Review";
-
-      info.append(name, meta);
-      row.append(symbol, info, badge);
-      list.append(row);
-    }
+    $('fileCount').textContent=state.candidates.length;
+    $('scanStatus').textContent=state.candidates.length ? 'Last scan: '+new Date().toLocaleTimeString([], {hour12:false}) : '0 candidates';
+    const ul=$('fileList');ul.replaceChildren();
+    if(!state.candidates.length){const li=document.createElement('li');li.className='empty-files';li.textContent=state.active?'No matching files found yet. Scan again after creating or downloading files.':'No file candidates to display.';ul.append(li);return;}
+    state.candidates.sort((a,b)=>b.lastModified-a.lastModified).forEach(f=>{
+      const li=document.createElement('li');const icon=document.createElement('div');icon.className='file-icon';icon.innerHTML=icons.file;
+      const meta=document.createElement('div');meta.className='file-meta';const name=document.createElement('strong');name.textContent=f.name;const detail=document.createElement('span');detail.textContent=new Date(f.lastModified).toLocaleString()+' · '+formatBytes(f.size);meta.append(name,detail);
+      const tag=document.createElement('span');tag.className='file-tag';tag.textContent='SESSION FILE';li.append(icon,meta,tag);ul.append(li);
+    });
   }
-
-  async function scanDirectory() {
-    if (!state.directory || state.scanning) return;
-
-    state.scanning = true;
-    $("scanBtn").disabled = true;
-    $("finishBtn").disabled = true;
-    $("scanLabel").textContent = "Scanning…";
-    log("Scanning selected directory…", "info");
-
-    const matches = [];
-    let count = 0;
-
-    try {
-      for await (const [name, handle] of state.directory.entries()) {
-        if (handle.kind !== "file") continue;
-        count++;
-
-        try {
-          const file = await handle.getFile();
-          if (file.lastModified >= state.startedAt) {
-            matches.push({
-              name,
-              size: file.size,
-              lastModified: file.lastModified
-            });
-          }
-        } catch (err) {
-          log(`Could not read metadata for ${name}: ${err.message}`, "warn");
-        }
-      }
-
-      state.files = matches.sort((a, b) => b.lastModified - a.lastModified);
-      renderFiles();
-      $("scanLabel").textContent = `${count} top-level files checked · ${matches.length} timestamp matches`;
-      log(`Scan complete: ${count} top-level files checked; ${matches.length} timestamp matches.`, "good");
-    } catch (err) {
-      log(`Directory scan failed: ${err.message}`, "error");
-      $("scanLabel").textContent = "Scan failed. Check directory permissions.";
-    } finally {
-      state.scanning = false;
-      $("scanBtn").disabled = !state.directory;
-      $("finishBtn").disabled = !state.active;
-    }
-  }
-
+  function supported() { return !!window.showDirectoryPicker && !!window.isSecureContext; }
   async function startSession() {
-    if (!supportsPicker) {
-      log("Directory selection is not supported in this browser or context.", "error");
-      setStatus("Unsupported browser", "Use a compatible Chromium browser in a secure context.", false);
-      return;
-    }
-
+    if(!supported()){toast('Use Chrome or Edge on HTTPS or localhost to access folders.');log('Folder picker unavailable: use a supported browser on HTTPS or localhost.','bad');return;}
     try {
-      // Must be invoked directly from the user's button click.
-      const directory = await window.showDirectoryPicker({ mode: "read" });
-
-      state.directory = directory;
-      // Start time is recorded only after directory access succeeds.
-      state.startedAt = Date.now();
-      state.active = true;
-      state.files = [];
-
-      $("pathLabel").textContent = `Selected directory: ${directory.name}`;
-      $("fileList").replaceChildren();
-      $("fileCount").textContent = "—";
-      $("scanLabel").textContent = "Session started; scan when ready.";
-      $("startBtn").disabled = true;
-      $("finishBtn").disabled = false;
-      $("scanBtn").disabled = false;
-      $("reportBtn").disabled = true;
-
-      setStatus("Session in progress", "Directory access granted for this session.", true);
-      log(`Session started at ${new Date(state.startedAt).toISOString()}.`, "good");
-      log(`Directory selected: ${directory.name}.`, "good");
-      log("Monitoring is scan-based, not a continuous filesystem watcher.", "warn");
-
-      clearInterval(state.elapsedTimer);
-      state.elapsedTimer = setInterval(() => {
-        if (state.active) {
-          $("elapsed").textContent = formatDuration(Date.now() - state.startedAt);
-        }
-      }, 1000);
-
-      await scanDirectory();
-    } catch (err) {
-      if (err.name === "AbortError") {
-        log("Directory selection cancelled.", "warn");
-      } else {
-        log(`Could not start session: ${err.message}`, "error");
+      const handle=await window.showDirectoryPicker({mode:'readwrite'});
+      state.handle=handle;state.startTime=Date.now();state.active=true;state.candidates=[];state.log=[];
+      setStatus('active','Session is being tracked', 'Selected folder: '+handle.name, 'Tracking');
+      $('startBtn').disabled=true;$('burnBtn').disabled=false;$('scanBtn').disabled=false;
+      log('Secure session started. Folder: '+handle.name,'good');
+      log('Session start timestamp: '+new Date(state.startTime).toISOString(),'info');
+      log('Tracking direct files by last-modified timestamp.','info');
+      updateTimer();state.timer=setInterval(updateTimer,1000);await scanFolder();
+    } catch(err) {
+      if(err && err.name==='AbortError'){log('Folder selection cancelled. No session started.','warn');return;}
+      log('Could not start session: '+(err?.message||String(err)),'bad');toast('Could not open selected folder.');
+    }
+  }
+  async function scanFolder() {
+    if(!state.active||!state.handle||state.scanning)return;
+    state.scanning=true;$('scanBtn').disabled=true;$('scanStatus').textContent='Scanning…';log('Scanning directory…','info');
+    const found=[];
+    try {
+      for await (const [name,handle] of state.handle.entries()) {
+        if(handle.kind!=='file')continue;
+        try {
+          const file=await handle.getFile();
+          if(file.lastModified>=state.startTime)found.push({name:file.name,lastModified:file.lastModified,size:file.size,handle});
+        } catch(e) { log('Could not inspect '+name+': '+(e?.message||String(e)),'warn'); }
       }
+      state.candidates=found;renderFiles();log('Scan complete. '+found.length+' matching file(s) found.','good');
+    } catch(err) {
+      log('Directory scan failed: '+(err?.message||String(err)),'bad');toast('Folder scan failed. Check folder permission.');
+    } finally {state.scanning=false;$('scanBtn').disabled=!state.active;}
+  }
+  function openModal() {
+    if(!state.active)return;
+    $('modalCount').textContent=state.candidates.length+' file'+(state.candidates.length===1?'':'s');
+    $('confirmCheck').checked=false;$('confirmBurn').disabled=true;$('confirmModal').classList.add('show');
+  }
+  function closeModal() { $('confirmModal').classList.remove('show'); }
+  async function burnFiles() {
+    closeModal();if(!state.active||!state.handle)return;
+    $('burnBtn').disabled=true;$('scanBtn').disabled=true;
+    log('Burn sequence confirmed by user.','warn');
+    // Refresh just before deleting, so stale or newly changed candidates are not blindly trusted.
+    log('Rechecking selected directory before deletion…','info');
+    const current=[];
+    try {
+      for await (const [name,handle] of state.handle.entries()) {
+        if(handle.kind!=='file')continue;
+        try {const file=await handle.getFile();if(file.lastModified>=state.startTime)current.push({name:file.name,lastModified:file.lastModified,handle});}
+        catch(e){log('Could not recheck '+name+': '+(e?.message||String(e)),'warn');}
+      }
+    } catch(err) {log('Recheck failed; no files deleted: '+(err?.message||String(err)),'bad');$('burnBtn').disabled=false;$('scanBtn').disabled=false;return;}
+    state.candidates=current;renderFiles();
+    let deleted=0, failed=0;
+    for(const item of current) {
+      try {
+        // Ensure the file still appears to be within the session time window immediately before removal.
+        const latest=await item.handle.getFile();
+        if(latest.lastModified<state.startTime){log('Skipped (timestamp no longer matches): '+item.name,'warn');continue;}
+        await state.handle.removeEntry(item.name);
+        deleted++;log('Removed file entry: '+item.name,'good');
+      } catch(err) {failed++;log('Could not remove '+item.name+': '+(err?.message||String(err)),'bad');}
     }
+    // Revoke only Blob URLs created/registered by this page; the app does not create any by default.
+    for(const url of state.blobUrls){try{URL.revokeObjectURL(url)}catch{}}
+    state.blobUrls.clear();
+    // Remove only Session Burner namespaced keys, not all data belonging to this website/origin.
+    try {
+      const keys=[];for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i);if(k&&k.startsWith('session-burner:'))keys.push(k)}
+      keys.forEach(k=>localStorage.removeItem(k));
+      const skeys=[];for(let i=0;i<sessionStorage.length;i++){const k=sessionStorage.key(i);if(k&&k.startsWith('session-burner:'))skeys.push(k)}
+      skeys.forEach(k=>sessionStorage.removeItem(k));
+      log('Cleared Session Burner namespaced browser storage and temporary Blob URLs.','good');
+    } catch(err) {log('Browser storage cleanup was blocked: '+(err?.message||String(err)),'warn');}
+    state.active=false;state.handle=null;state.startTime=0;state.candidates=[];clearInterval(state.timer);state.timer=null;
+    $('duration').textContent='00:00:00';renderFiles();
+    setStatus('done','Session finished', 'Selected files processed. Review the activity log for results.', 'Complete');
+    $('startBtn').disabled=false;$('burnBtn').disabled=true;$('scanBtn').disabled=true;
+    log('Burn complete. Removed '+deleted+' file(s); '+failed+' failure(s).','good');
+    log('Note: file-entry removal is not guaranteed secure erasure or unrecoverability.','warn');
+    toast('Session finished. '+deleted+' file(s) removed.');
   }
-
-  function openFinishModal() {
-    $("modalSummary").textContent =
-      `${state.files.length} matching files from the most recent scan. Finishing will stop the session and run a fresh scan.`;
-    $("confirmOverlay").classList.add("show");
-    $("cancelBtn").focus();
-  }
-
-  async function finishSession() {
-    $("confirmOverlay").classList.remove("show");
-    if (!state.active) return;
-
-    await scanDirectory();
-
-    state.active = false;
-    clearInterval(state.elapsedTimer);
-    $("elapsed").textContent = formatDuration(Date.now() - state.startedAt);
-    $("startBtn").disabled = false;
-    $("finishBtn").disabled = true;
-    $("scanBtn").disabled = true;
-
-    setStatus("Session finished", "Review the matching files below.", false);
-    log("Session finished. No files were deleted.", "good");
-    log("Directory access remains available to this page until it is closed or permissions are revoked.", "info");
-  }
-
-  function exportReport() {
-    const report = {
-      application: "Session Burner Pro",
-      sessionStartTime: new Date(state.startedAt).toISOString(),
-      reportGeneratedAt: new Date().toISOString(),
-      note: "Timestamp matches are not proof that a file was created during this session.",
-      files: state.files,
-      events: state.events
-    };
-    downloadText("session-burner-report.json", JSON.stringify(report, null, 2), "application/json");
-    log("File review report exported.", "good");
-  }
-
-  $("startBtn").addEventListener("click", startSession);
-  $("finishBtn").addEventListener("click", openFinishModal);
-  $("cancelBtn").addEventListener("click", () => $("confirmOverlay").classList.remove("show"));
-  $("confirmBtn").addEventListener("click", finishSession);
-  $("scanBtn").addEventListener("click", scanDirectory);
-  $("exportBtn").addEventListener("click", exportLog);
-  $("reportBtn").addEventListener("click", exportReport);
-
-  $("confirmOverlay").addEventListener("click", event => {
-    if (event.target === $("confirmOverlay")) {
-      $("confirmOverlay").classList.remove("show");
-    }
-  });
-
-  document.addEventListener("keydown", event => {
-    if (event.key === "Escape") $("confirmOverlay").classList.remove("show");
-  });
-
-  window.addEventListener("pagehide", releaseObjectUrls);
-
-  if (!supportsPicker) {
-    $("startBtn").title = "Use a compatible Chromium browser in a secure context.";
-    log("Browser directory-picker support is unavailable. Use Chrome or Edge on HTTPS or localhost.", "warn");
-  } else {
-    log("Ready. Start a session to select a directory.", "good");
-  }
+  $('startBtn').addEventListener('click',startSession);
+  $('scanBtn').addEventListener('click',scanFolder);
+  $('burnBtn').addEventListener('click',openModal);
+  $('cancelBurn').addEventListener('click',closeModal);
+  $('confirmCheck').addEventListener('change',e=>$('confirmBurn').disabled=!e.target.checked);
+  $('confirmBurn').addEventListener('click',()=>{if($('confirmCheck').checked)burnFiles()});
+  $('confirmModal').addEventListener('click',e=>{if(e.target===$('confirmModal'))closeModal()});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
+  $('clearLogBtn').addEventListener('click',()=>{state.log=[];renderLog();log('Activity log view cleared.','warn')});
+  if(!supported()) log('Heads up: directory access requires a Chromium-based browser on HTTPS or localhost.','warn');
+  else log('Ready. Start a session to choose a folder.','info');
 })();
 </script>
 </body>
